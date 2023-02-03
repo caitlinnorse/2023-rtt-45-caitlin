@@ -1,0 +1,9 @@
+/**
+ * 
+ */
+/**
+ * @author harlo
+ *
+ */
+module ClassExamples {
+}
