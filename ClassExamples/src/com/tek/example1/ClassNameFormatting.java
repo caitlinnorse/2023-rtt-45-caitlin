@@ -9,9 +9,8 @@ public class ClassNameFormatting {
 	 * merge conflicts, not because the code has changed but because the formatting
 	 * has changed.
 	 * 
-	 * To use the built in formatting tool 
-	 * 1) ctrl + ato select the entire file 
-	 * 2) ctrl + shift + f to format the file
+	 * To use the built in formatting tool 1) ctrl + ato select the entire file 2)
+	 * ctrl + shift + f to format the file
 	 */
 
 	// can never be reassigned
@@ -46,33 +45,30 @@ public class ClassNameFormatting {
 	// this one will be determined by the team you work with
 	public String spaces = "    ";
 	public String tab = "\t";
-	
-	
+
 	// boolean value set to true
 	public boolean BooleanValue = true;
 	public int intValue = 55;
 	public long longValue = 15032428723407524L;
-	
+
 	public Boolean booleanClass = true;
 	public Integer intClass = 10;
-	
+
 	// a String variable is defined with the ""
 	public String utf8 = "¼";
-	
+
 	// a char is a single character that is defined with a single quote ''
 	// the single quote is also referenced as a tic mark
-	
+
 	public char utf8Char = '\u00BC';
-	
-	
+
 	public int a = 5;
 	public int b = 5;
-	
+
 	boolean test = (a == b); // true
-	
+
 	boolean test1 = (a != b); // false
-	
-	
+
 	public void logicalOperators() {
 		if (a == b && a == 5) {
 			// if either condition is false then the code block will not execute
@@ -80,12 +76,17 @@ public class ClassNameFormatting {
 		if ( a == 6 || b == 5) {
 			// if one of the conditions is true then the code will execute
 		}
-		
+
+	
+
+	for(int x = 0;x<10;x++)
+	{
+		// the code inside here will execute 9 times and the value of x will incrememnt
+		// by 1 each time thru the loop
+
 	}
-	
-	a = a++;
-	
-	
-	
-	
+
+
+
+}
 }
