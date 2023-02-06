@@ -62,7 +62,29 @@ public class ClassNameFormatting {
 	// a char is a single character that is defined with a single quote ''
 	// the single quote is also referenced as a tic mark
 	
-	public char utf8Char ='¼';
+	public char utf8Char = '\u00BC';
+	
+	
+	public int a = 5;
+	public int b = 5;
+	
+	boolean test = (a == b); // true
+	
+	boolean test1 = (a != b); // false
+	
+	
+	public void logicalOperators() {
+		if (a == b && a == 5) {
+			// if either condition is false then the code block will not execute
+		}
+		if ( a == 6 || b == 5) {
+			// if one of the conditions is true then the code will execute
+		}
+		
+	}
+	
+	a = a++;
+	
 	
 	
 	

@@ -5,16 +5,16 @@ import java.util.Scanner;
 
 
 public class ScannerClass {
-	Scanner input = new Scanner(System.in);
+
 	
-	
-	System.out.println("Enter your name please: ");
-	
-	String name = input.nextLine();
-	
-	System.out.println("My name is " + name + ".");
-	
-	
+	public static void main(String args[]) {
+		Scanner input = new Scanner(System.in);
+		
+		System.out.println("Enter your name: ");
+		String name = input.nextLine();
+		
+		System.out.println("My name is " + name + ".");
+	}
 	
 	
 
