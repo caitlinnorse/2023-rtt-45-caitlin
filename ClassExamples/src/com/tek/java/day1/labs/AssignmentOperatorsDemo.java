@@ -1,4 +1,4 @@
-package com.tek.java.day1;
+package com.tek.java.day1.labs;
 
 public class AssignmentOperatorsDemo {
 	public static void main (String args[]) {
