@@ -1,4 +1,4 @@
-package com.tek.example1;
+package com.tek.java.day1;
 
 // camel case with first letter uppercase
 // interfaces follow the same naming convention as a class
