@@ -4,16 +4,38 @@ public class ConditionalStatementsLesson {
 	public static void main(String args[]) {
 		ConditionalStatementsLesson d2 = new ConditionalStatementsLesson();
 		d2.ifStatement();
+		d2.caseStatement();
+		
+	}
+	
+	public void caseStatement() {
+		int grade = 2;
+		
+
+		// only use case to check a specific value
+		switch(grade) {
+		case 1: System.out.println("Selection = 1");
+			break;
+		case 2: System.out.println("Selection = 2");
+			break;
+		case 3: System.out.println("Selection = 3");
+			break;
+
+		}
+
+		
 		
 	}
 	
 	public void ifStatement() {
-		int grade = 150;
+		int grade = 15;
 		
 		int a = 1;
 		int b = 2;
 		
-		if (grade > 100) {
+// !!!!!!!!!!!!!!!!!!!!!!! YOU MUST ALWAYS HAVE {} FOR THE CODE BLOCK AFTER THE IF STATEMENT
+		
+		if (grade > 100 || grade < 0) {
 			System.out.println("Grade " + grade + "  is invalid");
 		} else if (grade >= 90) {
 			System.out.println("Grade " + grade + " for the course is an A");
@@ -28,6 +50,10 @@ public class ConditionalStatementsLesson {
 		}
 		
 		//System.out.println("This is executed after the if statement no matter what");
+	}
+	// do this one without looking at answer
+	public void leapYear() {
+		
 	}
 
 }
