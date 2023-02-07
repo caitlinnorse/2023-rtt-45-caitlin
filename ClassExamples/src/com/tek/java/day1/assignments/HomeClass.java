@@ -5,6 +5,7 @@ public class HomeClass {
 	public static void main(String args[]) {
 		
 		// first activity
+		System.out.println("First activity:\n");
 		int var1;
 		int var2;
 		
@@ -17,6 +18,7 @@ public class HomeClass {
 		System.out.println(varSum);
 		
 		// second activity
+		System.out.println("\nSecond activity:");
 		double doub1;
 		double doub2;
 		
@@ -25,10 +27,11 @@ public class HomeClass {
 		
 		double doubSum = doub1 + doub2;
 		
-		System.out.println("\nThe sum of the variables " + doub1 + " and " + doub2);
+		System.out.println("The sum of the variables " + doub1 + " and " + doub2);
 		System.out.println(doubSum);
 		
 		// third activity
+		System.out.println("\nThird activity:");
 		int var3;
 		double doub3;
 		
@@ -41,6 +44,7 @@ public class HomeClass {
 		System.out.println(mixedSum);
 		
 		// fourth activity
+		System.out.println("\nFourth activity:");
 		int largeNum;
 		int smallNum;
 		
@@ -55,10 +59,11 @@ public class HomeClass {
 		// changing the larger number to a decimal
 		quotient = (double)largeNum/(double)smallNum;
 		
-		System.out.println("\nThe quotient of the double variables " + largeNum + " and " + smallNum);
+		System.out.println("The quotient of the double variables " + largeNum + " and " + smallNum);
 		System.out.println(quotient);
 		
 		// fifth activity
+		System.out.println("\nFifth activity:");
 		double largeDouble;
 		double smallDouble;
 		
@@ -72,9 +77,22 @@ public class HomeClass {
 		
 		int quotient2 = (int)largeDouble/(int)smallDouble;
 		
-		System.out.println("\nThe quotient of the integer variables " + largeDouble + " and " + smallDouble);
+		System.out.println("The quotient of the integer variables " + largeDouble + " and " + smallDouble);
 		System.out.println(quotient2);
 		
+		
+		// sixth exercise
+		System.out.println("\nSixth activity:");
+		int x = 5;
+		int y = 6;
+		
+		double q = y/x;
+		System.out.println("\nThe quotient of the variables " + y + " and " + x);
+		System.out.println(q);
+		
+		q = (double)y;
+		System.out.println("The new q: ");
+		System.out.println(q);
 	}
 
 }
