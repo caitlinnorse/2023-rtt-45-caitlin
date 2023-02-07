@@ -39,6 +39,24 @@ public class HomeClass {
 		
 		System.out.println("\nThe sum of the variables " + var3 + " and " + doub3);
 		System.out.println(mixedSum);
+		
+		// fourth activity
+		int largeNum;
+		int smallNum;
+		
+		largeNum = 15;
+		smallNum = 4;
+		
+		double quotient = largeNum/smallNum;
+		
+		System.out.println("\nThe quotient of the integer variables " + largeNum + " and " + smallNum);
+		System.out.println(quotient);
+		
+		// changing the larger number to a decimal
+		quotient = (double)largeNum/(double)smallNum;
+		
+		System.out.println("\nThe quotient of the double variables " + largeNum + " and " + smallNum);
+		System.out.println(quotient);
 	}
 
 }
