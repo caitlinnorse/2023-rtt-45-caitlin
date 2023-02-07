@@ -102,7 +102,7 @@ public class HomeClass {
 		
 		System.out.println("The area of a circle with radius " + radius + " is " + area);
 		
-		// eigth activity
+		// Eighth activity
 		
 		double coffee = 4.50;
 		double muffin = 3.99;
