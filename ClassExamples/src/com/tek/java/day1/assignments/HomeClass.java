@@ -93,6 +93,14 @@ public class HomeClass {
 		q = (double)y;
 		System.out.println("The new q: ");
 		System.out.println(q);
+		
+		// seventh exercise
+		System.out.println("\nSeventh activity:");
+		final double PI = 3.14;
+		double radius = 4;
+		double area = radius * radius * PI;
+		
+		System.out.println("The area of a circle with radius " + radius + " is " + area);
 	}
 
 }
