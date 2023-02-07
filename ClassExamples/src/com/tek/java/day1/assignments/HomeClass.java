@@ -57,6 +57,24 @@ public class HomeClass {
 		
 		System.out.println("\nThe quotient of the double variables " + largeNum + " and " + smallNum);
 		System.out.println(quotient);
+		
+		// fifth activity
+		double largeDouble;
+		double smallDouble;
+		
+		largeDouble = 43.9;
+		smallDouble = 12.2;
+		
+		double quotient1 = largeDouble/smallDouble;
+
+		System.out.println("\nThe quotient of the double variables " + largeDouble + " and " + smallDouble);
+		System.out.println(quotient1);
+		
+		int quotient2 = (int)largeDouble/(int)smallDouble;
+		
+		System.out.println("\nThe quotient of the integer variables " + largeDouble + " and " + smallDouble);
+		System.out.println(quotient2);
+		
 	}
 
 }
