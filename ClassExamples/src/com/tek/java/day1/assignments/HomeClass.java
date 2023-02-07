@@ -11,12 +11,22 @@ public class HomeClass {
 		var1 = 3;
 		var2 = 9;
 		
-		int sum = var1 + var2;
+		int varSum = var1 + var2;
 		
-		System.out.println(sum);
+		System.out.println("The sum of the variables " + var1 + " and " + var2);
+		System.out.println(varSum);
 		
 		// second activity
+		double doub1;
+		double doub2;
 		
+		doub1 = 4.9;
+		doub2 = 5.7;
+		
+		double doubSum = doub1 + doub2;
+		
+		System.out.println("\nThe sum of the variables " + doub1 + " and " + doub2);
+		System.out.println(doubSum);
 		
 		
 	}
