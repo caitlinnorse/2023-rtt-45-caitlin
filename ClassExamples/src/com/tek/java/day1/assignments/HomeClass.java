@@ -101,6 +101,24 @@ public class HomeClass {
 		double area = radius * radius * PI;
 		
 		System.out.println("The area of a circle with radius " + radius + " is " + area);
+		
+		// eigth activity
+		
+		double coffee = 4.50;
+		double muffin = 3.99;
+		double tea = 2.50;
+		
+		double subtotal;
+		double totalSale;
+		
+		subtotal = (3 * coffee) + (4 * muffin) + (2 * tea);
+		
+		final double SALES_TAX = 1.06;
+		totalSale = (subtotal * SALES_TAX);
+		
+		System.out.println("The total of 3 coffee's, 4 muffin's, and 3 tea's is: $" + String.format("%.2f", totalSale));
+		
+		
 	}
 
 }
