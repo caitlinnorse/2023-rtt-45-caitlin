@@ -28,7 +28,17 @@ public class HomeClass {
 		System.out.println("\nThe sum of the variables " + doub1 + " and " + doub2);
 		System.out.println(doubSum);
 		
+		// third activity
+		int var3;
+		double doub3;
 		
+		var3 = 5;
+		doub3 = 6.2;
+		
+		double mixedSum = var3 + doub3;
+		
+		System.out.println("\nThe sum of the variables " + var3 + " and " + doub3);
+		System.out.println(mixedSum);
 	}
 
 }
