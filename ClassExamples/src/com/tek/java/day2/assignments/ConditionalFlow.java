@@ -36,6 +36,17 @@ public class ConditionalFlow {
 		} else {
 			System.out.println("Greater than or equal to 20");
 		}
+		
+		// Fourth exercise
+		System.out.println("\nFourth Exercise");
+		
+		int a = 5;
+		
+		if (a >= 10 && a <= 20) {
+			System.out.println("In range");
+		} else {
+			System.out.println("Out of range");
+		}
 	}
 
 }
