@@ -7,6 +7,7 @@ import java.util.Scanner;
 public class LoopPractice {
 	public static void main(String args[]) {
 		// exercise 1
+		/*
 		System.out.println("Exercise 1");
 		for(int i = 1; i <= 12; i++) {
 			System.out.println(i + " ");
@@ -14,10 +15,12 @@ public class LoopPractice {
 				System.out.print(j * i + " ");
 			}
 		}
-		
+		*/
 		// exercise 2
 		Scanner scan = new Scanner(System.in);
+		System.out.println("Enter first number: ");
 		int n1 = scan.nextInt();
+		System.out.println("Enter second number" );
 		int n2 = scan.nextInt();
 		
 		List<Integer> intList = new ArrayList<>();
@@ -28,8 +31,16 @@ public class LoopPractice {
 				temp = k;
 				intList.add(temp);
 			}
-			intList.sort(null);
 		}
+		
+		int maxVal = 0;
+		for (int e : intList ) {
+			if (e > maxVal) {
+				maxVal = e;
+			}
+		}
+		
+		System.out.println(maxVal);
 	}
 
 }
