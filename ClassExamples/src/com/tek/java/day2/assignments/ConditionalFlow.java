@@ -12,6 +12,17 @@ public class ConditionalFlow {
 			System.out.println("Less than 10");
 			
 		}
+		
+		// Second exercise
+		System.out.println("Second Exercise\n");
+		
+		int y = 15;
+		
+		if ( y < 10) {
+			System.out.println("Less than 10");
+		} else {
+			System.out.println("Greater than 10");
+		}
 	}
 
 }
