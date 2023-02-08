@@ -16,6 +16,7 @@ public class LoopPractice {
 			}
 		}
 		*/
+		/*
 		// exercise 2
 		Scanner scan = new Scanner(System.in);
 		System.out.println("Enter first number: ");
@@ -41,6 +42,20 @@ public class LoopPractice {
 		}
 		
 		System.out.println(maxVal);
+		*/
+		
+		// exercise 3
+		int tuition = 10000;
+		int doubleTuition = tuition * 2;
+		int newTuition = tuition;
+		int counter = 0;
+		
+		while(newTuition != doubleTuition) {
+			newTuition *= 1.07;
+			counter++;
+			System.out.println(newTuition);
+		}
+		System.out.println(counter);
 	}
 
 }
