@@ -1,5 +1,7 @@
 package com.tek.java.day2.assignments;
 
+import java.util.Scanner;
+
 public class ConditionalFlow {
 	public static void main (String args[]) {
 		// First exercise
@@ -46,6 +48,31 @@ public class ConditionalFlow {
 			System.out.println("In range");
 		} else {
 			System.out.println("Out of range");
+		}
+		
+		// Fifth exercise
+		System.out.println("\nFifth Exercise");
+		
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.println("Please enter your grade: ");
+		int grade = scan.nextInt();
+		
+		
+		if (grade > 100 || grade < 0) {
+			System.out.println("Score out of range");
+		} else if (grade >= 90) {
+			System.out.println("A");
+		} else if (grade >= 80) {
+			System.out.println("B");
+		} else if (grade >= 70) {
+			System.out.println("C");
+		} else if (grade >= 60) {
+			System.out.println("D");
+		} else if (grade >= 0){
+			System.out.println("F");
+		} else {
+			
 		}
 	}
 
