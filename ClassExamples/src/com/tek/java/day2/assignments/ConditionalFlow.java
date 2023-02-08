@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class ConditionalFlow {
 	public static void main(String args[]) {
+		
 		// First exercise
 
 		System.out.println("First Exercise");
@@ -106,15 +107,17 @@ public class ConditionalFlow {
 			System.out.println("Out of range");
 			break;
 		}
-
+		
 		// Seventh exercise
+		Scanner taxScan = new Scanner(System.in);
 		System.out.println("\nSeventh Exercise");
 
 		System.out.println("Please enter your filing status: ");
-		String filingStatus = scan.nextLine();
+		String filingStatus = taxScan.nextLine();
 
 		System.out.println("Please enter your income: ");
-		int income = scan.nextInt();
+		int income = taxScan.nextInt();
+		
 
 		switch (filingStatus) {
 		case "Single": {
@@ -133,6 +136,7 @@ public class ConditionalFlow {
 			} else {
 				System.out.println("Not valid");
 			}
+			break;
 		}
 		case "Married Filing Jointly": {
 			if(income >= 372951) {
