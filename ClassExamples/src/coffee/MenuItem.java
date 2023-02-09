@@ -7,6 +7,7 @@ public class MenuItem {
 	
 	private String name;
 	private double price;
+	private int quantityInStock;
 	
 	// the constructor does not have a return type
 	// by default all objects have an empty argument constructor that we do not have to code
@@ -19,9 +20,10 @@ public class MenuItem {
 	// the member variable of the class itself by using 'this'
 	// it specifies the variable of the class
 	// 'this.' refers to the instance of this class that is in memory
-	public MenuItem(String name, double price) {
+	public MenuItem(String name, double price, int quantityInStock) {
 		this.name = name;
 		this.price = price;
+		this.quantityInStock = quantityInStock;
 	}
 
 	
@@ -40,5 +42,14 @@ public class MenuItem {
 	public void setPrice(double price) {
 		this.price = price;
 	}
+
+	public int getQuantityInStock() {
+		return quantityInStock;
+	}
+
+	public void setQuantityInStock(int quantityInStock) {
+		this.quantityInStock = quantityInStock;
+	}
+	
 
 }
