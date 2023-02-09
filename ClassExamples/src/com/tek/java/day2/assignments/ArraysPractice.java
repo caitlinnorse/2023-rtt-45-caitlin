@@ -2,7 +2,7 @@ package com.tek.java.day2.assignments;
 
 
 import java.util.Arrays;
-import java.util.Collections;
+import java.util.Scanner;
 
 public class ArraysPractice {
 	public static void main(String args[]) {
@@ -146,6 +146,29 @@ public class ArraysPractice {
 		for(Object obj : o) {
 			System.out.println(obj);
 		}
+		
+		// exercise 11
+		System.out.println("\nExercise 11");
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.println("How many favorite things do you have?");
+		int favorites = scan.nextInt();
+		
+		
+		String[] favsList = new String[favorites];
+		Scanner scan2 = new Scanner(System.in);
+		
+		for(int i = 0; i < favorites; i++) {
+			System.out.println("Enter your thing: ");
+			String thing = scan2.nextLine();
+			favsList[i] = thing;
+		}
+		
+		System.out.println("Your favorite things are: ");
+		for(String s : favsList) {
+			System.out.print(s + " ");
+		}
+
 		
 	}
 
