@@ -87,6 +87,20 @@ public class Arrays {
 			System.out.println(intArray[i]);
 		}
 		
+		// exercise 8
+		System.out.println("\nExercise 8");
+		String[] swapArray = {"bird", "bee", "flower", "sun", "grass"};
+		int middleElement = swapArray.length / 2;
+		
+		String temp = swapArray[0];
+		swapArray[0] = swapArray[middleElement];
+		swapArray[middleElement] = temp;
+		
+		for(String s : swapArray) {
+			System.out.println(s);
+		}
+		
+		
 		
 	}
 
