@@ -1,6 +1,10 @@
 package com.tek.java.day2.assignments;
 
-public class Arrays {
+
+import java.util.Arrays;
+import java.util.Collections;
+
+public class ArraysPractice {
 	public static void main(String args[]) {
 		// exercise 1
 		System.out.println("Exercise 1");
@@ -100,8 +104,37 @@ public class Arrays {
 			System.out.println(s);
 		}
 		
+		// exercise 9
+		System.out.println("\nExercise 9");
+		Integer[] ascendingArray = {4, 2, 9, 13, 1, 0};
+		
+		int smallestInt = ascendingArray[0];
+		int largestInt = 0;
+		
+		Arrays.sort(ascendingArray);
+		
+		for(int i : ascendingArray) {
+			if(smallestInt > i) {
+				smallestInt = i;
+			}
+		}
+		
+		for(int i : ascendingArray) {
+			if(i > largestInt) {
+				largestInt = i;
+			}
+		}
+		System.out.print("Array in ascending order: ");
+		for(int i : ascendingArray) {
+			System.out.print(i + " ");
+		}
+		System.out.println();
+		System.out.println("Largest Int: " + largestInt);
+		System.out.println("Smallest Int: " + smallestInt);
+		
 		
 		
 	}
+
 
 }
