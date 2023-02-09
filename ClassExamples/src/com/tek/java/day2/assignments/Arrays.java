@@ -29,7 +29,22 @@ public class Arrays {
 		
 		String[] strings1 = strings.clone();
 		
-		System.out.println(Arrays.toString(strings1));
+		//System.out.println(Arrays.toString(strings1));
+		
+		// exercise 4
+		System.out.println("\nExercise 4");
+		
+		int[] elements = {2, 14, 78, 47, 12};
+		
+		int length = elements.length;
+		
+		int first = elements[0];
+		int last = elements[length - 1];
+		
+		System.out.println("First: " + first + "\nLast: " + last);
+		
+		// System.out.println(elements[5]);
+		// elements[5] = 22;
 		
 		
 	}
