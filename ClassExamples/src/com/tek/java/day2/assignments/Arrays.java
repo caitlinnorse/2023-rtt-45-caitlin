@@ -62,6 +62,18 @@ public class Arrays {
 			System.out.println(i);
 		}
 		
+		// exercise 6
+		System.out.println("\nExercise 6");
+		int[] doubleArray = new int[5];
+		
+		for(int i = 0; i < doubleArray.length; i++) {
+			doubleArray[i] = i * 2;
+		}
+		
+		for(int i : doubleArray) {
+			System.out.println(i);
+		}
+		
 		
 	}
 
