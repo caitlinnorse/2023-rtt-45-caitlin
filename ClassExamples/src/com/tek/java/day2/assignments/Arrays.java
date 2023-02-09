@@ -74,6 +74,19 @@ public class Arrays {
 			System.out.println(i);
 		}
 		
+		// exercise 7
+		System.out.println("\nExercise 7");
+		
+		int[] intArray = {2, 43, 64, 86, 108};
+		int halfArray = intArray.length / 2;
+		
+		for(int i = 0; i < intArray.length; i++) {
+			if(i == halfArray) {
+				continue;
+			}
+			System.out.println(intArray[i]);
+		}
+		
 		
 	}
 
