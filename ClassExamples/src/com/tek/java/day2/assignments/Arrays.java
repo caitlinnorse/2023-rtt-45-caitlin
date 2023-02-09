@@ -14,6 +14,13 @@ public class Arrays {
 		System.out.println(ints[1]);
 		System.out.println(ints[2]);
 		
+		// exercise 2
+		System.out.println("\nExercise 2");
+		int[] nums = {13, 5, 7, 68, 2};
+		int middle = nums.length/2;
+		
+		System.out.println(nums[middle]);
+		
 	}
 
 }
