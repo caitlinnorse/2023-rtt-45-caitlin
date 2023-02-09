@@ -132,7 +132,20 @@ public class ArraysPractice {
 		System.out.println("Largest Int: " + largestInt);
 		System.out.println("Smallest Int: " + smallestInt);
 		
+		// exercise 10
+		System.out.println("\nExercise 10");
 		
+		Object[] o = new Object[5];
+		
+		o[0] = 3;
+		o[1] = "angel";
+		o[2] = "sword";
+		o[3] = "thistle";
+		o[4] = 44.4;
+		
+		for(Object obj : o) {
+			System.out.println(obj);
+		}
 		
 	}
 
