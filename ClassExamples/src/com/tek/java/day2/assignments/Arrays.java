@@ -21,6 +21,17 @@ public class Arrays {
 		
 		System.out.println(nums[middle]);
 		
+		// exercise 3
+		System.out.println("\nExercise 3");
+		String[] strings = {"red", "green", "blue", "yellow"};
+		
+		System.out.println(strings.length);
+		
+		String[] strings1 = strings.clone();
+		
+		System.out.println(Arrays.toString(strings1));
+		
+		
 	}
 
 }
