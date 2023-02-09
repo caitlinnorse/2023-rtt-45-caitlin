@@ -1,4 +1,4 @@
-package com.tek.java.day2.assignments;
+package com.tek.java.day3.assignments;
 
 
 import java.util.Arrays;
