@@ -30,6 +30,9 @@ public class Arrays {
 		String[] strings1 = strings.clone();
 		
 		//System.out.println(Arrays.toString(strings1));
+		for(String s : strings1) {
+			System.out.println(s);
+		}
 		
 		// exercise 4
 		System.out.println("\nExercise 4");
@@ -45,6 +48,19 @@ public class Arrays {
 		
 		// System.out.println(elements[5]);
 		// elements[5] = 22;
+		
+		// exercise 5
+		System.out.println("\nExercise 5");
+		
+		int[] arrayInt = new int[5];
+		
+		for(int i = 0; i < 5; i++) {
+			arrayInt[i] = i;
+		}
+		
+		for(int i : arrayInt) {
+			System.out.println(i);
+		}
 		
 		
 	}
