@@ -4,6 +4,7 @@ public class Shape {
 	// this means that only one variable x is created in memory for the entire JVM
 	// this mostly gets used when you are creating a constant
 	public static String SHAPE_NAME = "Shape";
+	
 	public String NOT_STATIC = "not static";
 	
 	public void printShape() {
@@ -12,6 +13,9 @@ public class Shape {
 	
 	private void shapeSize() {
 		System.out.println("Size of the shape");
+	}
+	public static void createShape() {
+		System.out.println("This is a static method");
 	}
 
 }

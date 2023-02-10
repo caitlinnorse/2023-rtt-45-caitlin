@@ -12,7 +12,9 @@ public class Square extends Shape {
 		// the additional functionality in the child square
 		super.printShape();
 		System.out.println("This is a different implementation for print shape in the square");
-	}
+		
+		SHAPE_NAME = "Square";
+		}
 	
 	public void printSquare() {
 		System.out.println("I am a square and my parents name is " + SHAPE_NAME);
