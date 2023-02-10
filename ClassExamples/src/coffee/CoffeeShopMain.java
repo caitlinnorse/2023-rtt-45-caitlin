@@ -20,6 +20,13 @@ public class CoffeeShopMain {
 				cs.orderItem();
 				System.out.println();
 				
+			} else if (select == CoffeeShop.VIEW_CART) {
+
+				System.out.println("\nHere is your cart:");
+				System.out.println();
+
+				cs.viewCart();
+				
 			} else if (select == CoffeeShop.EXIT) {
 
 				System.out.println("\nThank you, please come again.");
