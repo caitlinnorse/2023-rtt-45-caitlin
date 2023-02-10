@@ -1,6 +1,7 @@
 package com.tek.java.day3;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -8,7 +9,8 @@ public class ArraysLearning {
 	public static void main (String args[]) {
 		ArraysLearning ae = new ArraysLearning();
 		//ae.createArray();
-		ae.randomValues(1, 10, 10);
+		//ae.randomValues(1, 10, 10);
+		ae.deleteElement();
 		
 	}
 	
@@ -95,5 +97,24 @@ public class ArraysLearning {
 		System.out.println("Min value: " + minValue);
 		System.out.println("List Length: " + listArray.length);
 		
+	}
+	// first we fill our array
+	public void deleteElement() {
+		int[] arr = new int[10];
+		
+		for (int i = 0; i < arr.length; i++) {
+			arr[i] = i;
+		}
+		
+		System.out.println(Arrays.toString(arr));
+		//delete Element2
+		arr[2] = 0;
+		System.out.println(Arrays.toString(arr));
+		for(int i = 3; i < arr.length; i++) {
+			arr[i-1] = arr[i];
+		}
+		
+		arr[arr.length - 1] = 0;
+		System.out.println(Arrays.toString(arr));
 	}
 }
