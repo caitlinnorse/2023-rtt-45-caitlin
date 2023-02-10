@@ -3,12 +3,19 @@ package coffee;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class CoffeeShop {
 	
 	// this is also a member variable that is private to this class
 	// the member variable can only be accessed from inside the class
+	// all member variables are defined at the top of the file
 	private List<MenuItem> menuItems = new ArrayList<>();
+	private Scanner scan = new Scanner(System.in);
+	public static final int PRINT_MENU = 1;
+	public static final int ORDER_ITEM = 2;
+	public static final int EXIT = 3;
+
 	
 	public void initialize() {
 		// all 4 of these menu items are doing the same thing
@@ -41,5 +48,49 @@ public class CoffeeShop {
 			DecimalFormat df = new DecimalFormat("$###.00");
 			System.out.println(item.getName() + ":\t" + df.format(item.getPrice()) + "\t" + item.getQuantityInStock());
 		}
+		System.out.println("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+
+	}
+	
+	public int menuPrompt() {
+		System.out.println("Welcome to Caite's Coffee Shop!\n");
+		System.out.println(PRINT_MENU + ") Print Menu");
+		System.out.println(ORDER_ITEM + ") Order Item");
+		System.out.println(EXIT + ") Exit Coffee Shop");
+		System.out.print("\nMake selection: ");
+		
+		int selection = scan.nextInt();
+		scan.nextLine();
+		
+		System.out.println();
+		System.out.println("\nUser select menu number: " + selection);
+		
+		return selection;
+	}
+	
+	public void orderItem() {
+		printMenuItems();
+		
+		System.out.print("Enter item name: ");
+		String itemName = scan.nextLine();
+		//System.out.println(itemName);
+		
+		boolean exists = menuItemExists(itemName);
+		if(exists) {
+			System.out.println(itemName + " is valid");
+		} else {
+			System.out.println(itemName + " is not a valid selection");
+		}
+		
+	}
+	
+	// in this function the arg itemName represents the user input
+	private boolean menuItemExists(String itemName) {
+		for(MenuItem menuItem : menuItems) {
+			if (menuItem.getName().equals(itemName)) {
+				return true;
+			} 
+		}
+		return false;
 	}
 }
