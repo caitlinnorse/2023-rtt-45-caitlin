@@ -19,11 +19,11 @@ public class Circle extends Shape {
 		return area;
 	}
 	
-//
-//	@Override
-//	public String toString() {
-//		return "The area of " + getShapeName() + " (radius= " + radius + ", and pi= " + PI + ") is " + calculateArea();
-//		
-//	}
+
+	@Override
+	public String toString() {
+		return "The area of " + getShapeName() + " (radius= " + radius + ", and pi= " + PI + ") is " + calculateArea();
+		
+	}
 	
 }
