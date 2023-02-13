@@ -7,9 +7,8 @@ public class WaterMonster extends Monster{
 	}
 
 	@Override
-	public boolean attack() {
-		System.out.println("Attack with Water!");
-		return true;
+	public String attack() {
+		return "Attack with Water!";
 	}
 
 }

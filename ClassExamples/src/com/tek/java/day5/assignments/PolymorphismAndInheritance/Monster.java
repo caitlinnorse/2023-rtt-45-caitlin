@@ -7,8 +7,7 @@ public class Monster {
 		this.name = name;
 	}
 	
-	public boolean attack() {
-		System.out.println("!^_&^$@+%$* I don't know how to attack!");
-		return true;
+	public String attack() {
+		return "!^_&^$@+%$* I don't know how to attack!";
 	}
 }

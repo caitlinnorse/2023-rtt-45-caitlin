@@ -5,15 +5,12 @@ public class FireMonster extends Monster{
 		super(name);
 		// TODO Auto-generated constructor stub
 	}
-
-
 	String name;
 	
 	
 	@Override
-	public boolean attack() {
-		System.out.println("Attack with Fire!");
-		return true;
+	public String attack() {
+		return "Attack with Fire!";
 	}
 
 }
