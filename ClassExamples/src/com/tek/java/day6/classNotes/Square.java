@@ -28,6 +28,14 @@ public class Square extends Shape {
 		double area = length * height;
 		return area;
 	}
+	// this method overrides the toString function of Object which is the
+	// parent of all objects in Java. It is ther automatically and you do not need to do anything to use it
+	@Override
+	public String toString() {
+		return "The area of " + getShapeName() + " (length= " + length + ", and height= " + height + ") is " + calculateArea();
+		
+	}
+	
 	
 //	@Override
 //	public String shapeName() {

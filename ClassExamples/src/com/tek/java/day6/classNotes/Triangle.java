@@ -27,6 +27,12 @@ public class Triangle extends Shape {
 		return area;
 	}
 	
+	@Override
+	public String toString() {
+		return "The area of " + getShapeName() + " (base= " + base + ", and height= " + height + ") is " + calculateArea();
+		
+	}
+	
 	// we no longer need this method because we changed the parent SHape to have get and set name
 //	@Override
 //	public String shapeName() {
