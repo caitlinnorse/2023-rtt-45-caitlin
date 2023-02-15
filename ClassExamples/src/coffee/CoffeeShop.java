@@ -48,6 +48,9 @@ public class CoffeeShop {
 		// same as above but we are doing this in one line of code
 		menuItems.add(new MenuItem("Egg Sandwich", 14.30, 10));
 		
+		
+		// implementing comparator as an anonymous block
+		// comparator is an interface
 		menuItems.sort( // this is the sort function being called on the menuItems list itself
 				new Comparator<MenuItem>(){ // this is an anonymous block that creates a new comparator
 		
@@ -55,6 +58,7 @@ public class CoffeeShop {
 		public int compare(MenuItem o1, MenuItem o2) { // right here in line
 			Double p1 = o1.getPrice(); // these lines are implementing the sorting logic
 			Double p2 = o2.getPrice();
+			
 			
 			return p1.compareTo(p2);
 		} // this is the closing bracket for the compare method
