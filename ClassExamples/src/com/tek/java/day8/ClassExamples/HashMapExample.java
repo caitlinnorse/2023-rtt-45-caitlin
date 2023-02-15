@@ -2,6 +2,7 @@ package com.tek.java.day8.ClassExamples;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class HashMapExample {
 
@@ -10,13 +11,13 @@ public class HashMapExample {
 		
 		// Map<Key, Value>
 		// This is a map with string as a key and string as a value
-		Map<String, String> strMap = new HashMap<>();
+		Map<String, String> dictionary = new HashMap<>();
 		
-		strMap.put("key", "value");
-		strMap.put("concat", "To add 2 strings together");
-		strMap.put("instantiate", "To create a new object");
+		dictionary.put("key", "value");
+		dictionary.put("concat", "To add 2 strings together");
+		dictionary.put("instantiate", "To create a new object");
 		
-		System.out.println(strMap.get("concat"));
+		System.out.println(dictionary.get("concat"));
 		
 
 
@@ -39,15 +40,28 @@ public class HashMapExample {
 		sintMap.put(1, "one");
 		sintMap.put(2, "two");
 		sintMap.put(3, "three");
+		sintMap.put(4, "four");
+		sintMap.put(5, "five");
+		sintMap.put(6, "six");
+
+
+
 		
 		System.out.println(sintMap.get(3));
 		sintMap.put(3, "THREE");
 		System.out.println(sintMap.get(3));
-
-
 		
+		System.out.println("===================================");
 
-
+		Set<String> keySet = dictionary.keySet(); //this gives us the keys without the values
+		for(String key : keySet) { // then we are looping over the keys
+			// printing the key and the value
+			//however we have to fetch the value from the map using the key
+			System.out.println(key + " = "+ dictionary.get(key)); 
+			
+		}
+		System.out.println("===================================");
+		
 		
 	}
 
