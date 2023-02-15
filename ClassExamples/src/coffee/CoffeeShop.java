@@ -2,6 +2,7 @@ package coffee;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -35,17 +36,30 @@ public class CoffeeShop {
 		
 		MenuItem item2 = new MenuItem();
 		item2.setName("Large Coffee");
-		item2.setPrice(5.99);
+		item2.setPrice(7.99);
 		item2.setQuantityInStock(20);
 		
 		menuItems.add(item2);
 		
 		// this creates a new menu item using the constructor
-		MenuItem item3 = new MenuItem("Small Cookie", 9.99, 30);
+		MenuItem item3 = new MenuItem("Small Cookie", 5.99, 30);
 		menuItems.add(item3);
 		
 		// same as above but we are doing this in one line of code
 		menuItems.add(new MenuItem("Egg Sandwich", 14.30, 10));
+		
+		menuItems.sort( // this is the sort function being called on the menuItems list itself
+				new Comparator<MenuItem>(){ // this is an anonymous block that creates a new comparator
+		
+		@Override // we can not instantiate an interface so we must provide the implementation for that interface
+		public int compare(MenuItem o1, MenuItem o2) { // right here in line
+			Double p1 = o1.getPrice(); // these lines are implementing the sorting logic
+			Double p2 = o2.getPrice();
+			
+			return p1.compareTo(p2);
+		} // this is the closing bracket for the compare method
+		} // this is the closing bracket for the comparator implementation
+	); // this is the closing parenthesis for the .sort method
 		
 		
 	}
