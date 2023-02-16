@@ -7,7 +7,10 @@ import java.util.Set;
 public class HashMapExample {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
+		// List - ArrayList, LinkedList
+		// Set - HashSet
+		// Map - HashMap, TreeMap
 		
 		// Map<Key, Value>
 		// This is a map with string as a key and string as a value
@@ -16,6 +19,9 @@ public class HashMapExample {
 		dictionary.put("key", "value");
 		dictionary.put("concat", "To add 2 strings together");
 		dictionary.put("instantiate", "To create a new object");
+		
+		
+		dictionary.remove("key");
 		
 		System.out.println(dictionary.get("concat"));
 		
