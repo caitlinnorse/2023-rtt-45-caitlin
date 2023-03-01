@@ -16,32 +16,29 @@ public class ArrayLibrary {
 		}
 	
 	public int[] delete(int[] arr, int position) {
-//		int[] copy = new int[arr.length - 1];
-//		
-//		for(int i = 0; i < index; i++) {
-//			copy[i] = arr[i];
-//		}
-//		
-//		for(int i = index + 1; i < copy.length; i ++) {
-//			copy[i - 1] = arr[i];
-//		}
-//		return copy;
-		
-		for(int i = position + 1; i < arr.length; i++) {
-			arr[i-1] = arr[i];
-		}
-		//printArray(arr, "Array shifted left");
-		
 		int[] copy = new int[arr.length - 1];
-		
-		for(int i = 0; i < copy.length; i++) {
-			copy[i] = arr[i];
-		}
-		
-		return copy;
+			
+		for(int i = 0; i < position; i++) {
+				copy[i] = arr[i];
+			}
+			
+			for(int i = position + 1; i < copy.length; i ++) {
+				copy[i - 1] = arr[i];
+			}
+			return copy;
 	}
 	
-	public int[] insertElement(int[] arr, int position, int value) {
+	public int[] insertElement(int[] arr, int position, int value) throws Exception{
+		// first thing when you enter a function si to test your inputs
+		if(position < 0) {
+			throw new NegativePositionException("Position must be greater than 0");
+		}
+		if(position >= arr.length) {
+			throw new PositionTooLargeException("Position must be less than " + arr.length);
+		}
+		
+		
+		
 //		// 1- create a new array that is 1 larger than the size of arr <- array library for this?
 //		int[] copy = new int[arr.length + 1];
 //

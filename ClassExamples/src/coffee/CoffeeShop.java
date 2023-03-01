@@ -61,9 +61,17 @@ public class CoffeeShop {
 			
 			
 			return p1.compareTo(p2);
+			
+
 		} // this is the closing bracket for the compare method
 		} // this is the closing bracket for the comparator implementation
 	); // this is the closing parenthesis for the .sort method
+		
+		// Single line of code that uses a java stream to sort by price
+		// notice the :: notation in the syntax
+		// the elements in the list are of time MenuItem and we are sorting by the getPrice method / field
+		// how to find this is to google for "java stream sort object by field"
+		menuItems.sort(Comparator.comparing(MenuItem::getPrice));
 		
 		
 	}

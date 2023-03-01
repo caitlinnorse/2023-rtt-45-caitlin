@@ -17,9 +17,33 @@ public class ArrayLibraryMain {
 		al.printArray(numbers, "Default initialization");
 		
 		
-		numbers = al.insertElement(numbers, 5, 11);	
+		try {
+			numbers = al.insertElement(numbers, 15, 11);
+			al.printArray(numbers, "After Element insert");
+
+		} catch(PositionTooLargeException ptle) {
+			System.out.println("POSITION TOO LARGE EXCEPTION " + ptle.getMessage());
+		}
+		catch(NegativePositionException npe) {
+			System.out.println("NEGATIVE POSITION EXCEPTION " + npe.getMessage());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			// this is where you would do cleanup
+			// an example of what code goes here is .. closing a scanner
+			System.out.println("This code will be executed in either case no matter what.");
+		}
 		
-		al.printArray(numbers, "After Element insert");
+		
+//		try {
+//			numbers = al.insertElement(numbers, 30, 11);	
+//
+//		} catch (Exception e) {
+//			System.out.println("An exception has occurred.");
+//			System.out.println(e.getMessage());
+//			e.printStackTrace();
+//		}
 		
 		numbers = al.append(numbers, 12);
 		
