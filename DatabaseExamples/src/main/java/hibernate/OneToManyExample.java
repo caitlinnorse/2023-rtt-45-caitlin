@@ -56,23 +56,49 @@ public class OneToManyExample {
 //			System.out.println(o);
 //		}
 		
-		Order order1 = orderDao.findById(10100);
+//		Order order1 = orderDao.findById(10100);
+//		
+//		Product product = new Product();
+//		product.setProductCode("Hello");
+//		product.setProductName("Memecar");
+//		product.setProductLineId(2);
+//		product.setProductScale("Big");
+//		product.setProductVendor("Pepsi");
+//		product.setProductDescription("It good");
+//		product.setQuantityInStock(33);
+//		product.setBuyPrice(69.00);
+//		product.setMsrp(33.33);
+//		
+
+
 		
-		Product product = new Product();
-		product.setProductCode("Hello");
-		product.setProductName("Memecar");
-		product.setProductLineId(2);
-		product.setProductScale("Big");
-		product.setProductVendor("Pepsi");
-		product.setProductDescription("It good");
-		product.setQuantityInStock(33);
-		product.setBuyPrice(69.00);
-		product.setMsrp(33.33);
 		
-		productDao.insert(product);
+		OrderDetail od1 = new OrderDetail();
 		
+		Product prod = productDao.findById(111);
+		Order ord = orderDao.findById(10426);
 		
-//		OrderDetail od1 = new OrderDetail();
+		od1.setOrderLineNumber(3);
+		od1.setPriceEach(42.00);
+		od1.setQuantityOrdered(76);
+		od1.setProduct(prod);
+		od1.setOrder(ord);
+		orderDetailDao.insert(od1);
+		
+		prod.getOrderDetail().add(od1);
+		ord.getOrderDetails().add(od1);
+		
+		productDao.update(prod);
+		orderDao.update(ord);
+		
+		for(OrderDetail ordd : prod.getOrderDetail()) {
+			System.out.println(ordd);
+		}
+		
+		for(OrderDetail odd : ord.getOrderDetails()) {
+			System.out.println(odd);
+		}
+		
 //		od1.setOrderLineNumber(3);
 //		od1.setPriceEach(42.00);
 		

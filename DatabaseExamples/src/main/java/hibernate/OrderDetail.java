@@ -48,12 +48,12 @@ public class OrderDetail {
 	private Integer orderLineNumber;
 	
 	@ToString.Exclude
-	@ManyToOne(fetch = FetchType.EAGER, optional = false, cascade=CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.EAGER, optional = false)
 	@JoinColumn(name = "order_id", nullable = false)
 	    private Order order;
 	
 	@ToString.Exclude
-	@ManyToOne(fetch = FetchType.EAGER, optional = false, cascade=CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.EAGER, optional = false)
 	@JoinColumn(name = "product_id", nullable = false)
 	    private Product product;
 

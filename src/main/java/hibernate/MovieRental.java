@@ -1,6 +1,7 @@
 package hibernate;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -10,13 +11,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -25,37 +24,36 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-@EqualsAndHashCode
-@Table(name = "payments")
-public class Payment {
+@Table(name = "movierental")
+public class MovieRental {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
 	private Integer id;
 	
-	@Column(name="customer_id", insertable=false, updatable=false)
-	private Integer customerId;
+	@Column(name="movie_id", insertable=false, updatable=false)
+	private Integer movieId;
 	
-	@Column(name="check_number")
-	private String checkNumber;
+	@Column(name="user_id", insertable=false, updatable=false)
+	private Integer userId;
 	
-	@Column(name="payment_date")
-	@Temporal(TemporalType.DATE)
-	private Date paymentDate;
+	@Column(name="checkout_date")
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date checkoutDate;
 	
-	@EqualsAndHashCode.Exclude
-	@Column(name="amount", columnDefinition="decimal", precision=10, scale=2)
-	private Double amount;
+	@Column(name="checkin_date")
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date checkinDate;
 	
 	@ToString.Exclude
 	@ManyToOne(fetch = FetchType.EAGER, optional = false, cascade=CascadeType.ALL)
-	@JoinColumn(name = "customer_id", nullable = false)
-	    private Customer customer;
-
-
-
-
+	@JoinColumn(name = "movie_id", nullable = false)
+	    private Movie movie;
 	
-	
+	@ToString.Exclude
+	@ManyToOne(fetch = FetchType.EAGER, optional = false, cascade=CascadeType.ALL)
+	@JoinColumn(name = "user_id", nullable = false)
+	    private User user;
+
 }

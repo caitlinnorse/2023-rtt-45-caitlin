@@ -35,8 +35,11 @@ public class Product {
 	@Column(name="product_name")
 	private String productName;
 	
-	@Column(name="productline_id")
+	@Column(name="productline_id") // Remove FK constraint
 	private Integer productLineId;
+	
+	//@Column(name="productline_id", insertable=false, updatable=false)
+	//private Integer productLineId;
 	
 	@Column(name="product_scale")
 	private String productScale;
@@ -56,7 +59,9 @@ public class Product {
 	@Column(name="msrp", columnDefinition="decimal", precision=10, scale=2)
 	private Double msrp;
 	
+	// To OrderDetails
 	@ToString.Exclude
 	@OneToMany(mappedBy = "product", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<OrderDetail> orderDetail = new ArrayList<OrderDetail>();
+	
 }
