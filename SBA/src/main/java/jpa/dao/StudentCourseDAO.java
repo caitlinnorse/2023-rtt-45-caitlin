@@ -9,17 +9,17 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 import jpa.entitymodels.Course;
-import jpa.entitymodels.Student;
+import jpa.entitymodels.StudentCourse;
 
 public class StudentCourseDAO {
-	public void registerStudentToCourse(Student student) {
-			SessionFactory factory = new Configuration().configure().buildSessionFactory();
-			Session session = factory.openSession();
-			session.getTransaction().begin();
-			session.save(student);
-			session.getTransaction().commit();
-			session.close();
-		}
+	public void registerStudentToCourse(StudentCourse studentCourse) {
+		SessionFactory factory = new Configuration().configure().buildSessionFactory();
+		Session session = factory.openSession();
+		session.getTransaction().begin();
+		session.save(studentCourse);
+		session.getTransaction().commit();
+		session.close();
+	}
 	
 	
 	public List<Course> getStudentCourses(int studentId) {
@@ -28,11 +28,20 @@ public class StudentCourseDAO {
 
 		// this is HQL which is hibernate query language
 		// also referred to as JPA
-		String hql = "SELECT c.cId, c.cName, c.cInstructorName FROM Course c INNER JOIN Student_Course sc ON c.cId = sc.course_id INNER JOIN Student s "
-				+ "ON s.sId = sc.student_id WHERE s.sId = :studentId;";
+		//String hql = "FROM Course c INNER JOIN StudentCourse sc ON c.cId = sc.courseId INNER JOIN Student s "
+		//		+ "ON s.id = sc.studentId WHERE s.id = :studentId";
 
+		String hql = "SELECT c FROM Course c " +
+    					"INNER JOIN c.studentCourses sc " +
+    					"WHERE sc.studentId = :studentId";
+
+
+		 
+//
+//		String hql = "FROM Course c INNER JOIN StudentCourse sc ON c.cId = sc.courseId INNER JOIN Student s "
+//				+ "ON s.id = sc.studentId WHERE s.id = :studentId";
 		TypedQuery<Course> query = session.createQuery(hql, Course.class);
-		query.setParameter("sId", studentId);
+		query.setParameter("studentId", studentId);
 
 		// When we know we are getting 0 or more records we use getREsultList
 		List<Course> result = query.getResultList();

@@ -29,13 +29,13 @@ public class StudentDAO {
 			return result;
 		}
 
-		public List<Student> getStudentByEmail(String email) {
+		public Student getStudentByEmail(String email) {
 			SessionFactory factory = new Configuration().configure().buildSessionFactory();
 			Session session = factory.openSession();
 
 			// this is HQL which is hibernate query language
 			// also referred to as JPA
-			String hql = "FROM Student s where s.email = :sEmail";
+			String hql = "FROM Student s where s.sEmail = :sEmail";
 
 			TypedQuery<Student> query = session.createQuery(hql, Student.class);
 			query.setParameter("sEmail", email);
@@ -44,8 +44,10 @@ public class StudentDAO {
 			List<Student> result = query.getResultList();
 
 			session.close();
+			
+			
 
-			return result;
+			return result.size() > 0 ? result.get(0) : null;
 		}
 		
 

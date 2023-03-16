@@ -42,6 +42,18 @@ public class Course {
 	 @LazyCollection(LazyCollectionOption.FALSE)
 	 @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
 	    private List<StudentCourse> studentCourses = new ArrayList<StudentCourse>();
+	 
+	 public Course() {
+		 this.cId = 0;
+		 this.cName = "";
+		 this.cInstructorName = "";
+	 }
+	 
+	 public Course(int id, String cName, String cInstructorName) {
+		 this.cId = id;
+		 this.cName = cName;
+		 this.cInstructorName = cInstructorName;
+	 }
 }
 
 	

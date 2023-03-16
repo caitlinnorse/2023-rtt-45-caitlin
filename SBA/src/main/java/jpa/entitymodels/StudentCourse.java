@@ -31,7 +31,7 @@ public class StudentCourse {
 	private Integer studentId;
 	
 	@Column(name="course_id", insertable=false, updatable=false)
-	private Integer course_id;
+	private Integer courseId;
 	
 	@ToString.Exclude
 	@ManyToOne(fetch = FetchType.EAGER, optional = false)
@@ -42,5 +42,16 @@ public class StudentCourse {
 	@ManyToOne(fetch = FetchType.EAGER, optional = false)
 	@JoinColumn(name = "student_id", nullable = false)
 	    private Student student;
-
+	
+	public StudentCourse() {
+		this.id = 0;
+		this.studentId = 0;
+		this.courseId = 0;
+	}
+	
+	public StudentCourse(int id, int studentId, int courseId) {
+		this.id = id;
+		this.studentId = studentId;
+		this.courseId = courseId;
+	}
 }
