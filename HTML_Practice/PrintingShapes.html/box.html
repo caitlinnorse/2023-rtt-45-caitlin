@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // printing a box
+        let width = prompt("How large of a width would you like?");
+        let length = prompt("How large of a length would you like?");
+
+        let newLine = "";
+
+        for(let i = 0; i < length; i++) {
+            for(let j = 0; j < width; j++) {
+                newLine += "*";
+            }
+            newLine += "\n";
+        }
+
+        //console.log(newLine);
+        
+
+        // checkerboard
+
+        for(let k = 0; k < length; k++) {
+            let checkerboard = "";
+            if(k % 2 == 0) {
+                for(let l = 0; l < width; l++) {
+                    if(l % 2 == 0) {
+                        checkerboard += "*";
+                    }
+                    checkerboard += " ";
+                }
+            }
+            checkerboard +="\n";
+            for(let l = 0; l < width; l++) {
+                if(l % 2 != 0) {
+                    checkerboard += "*";
+                }
+                checkerboard += " ";
+            }
+            console.log(checkerboard);
+
+        }
+
+
+
+    </script>
+</body>
+</html>

@@ -13,6 +13,34 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
 </head>
+<script>
+    // This is a comment
+    /* This kind of comment too */
+    console.log("This is a test script.");
+    console.log('"3" == 3 ' + ("3" == 3));
+    console.log('3 == 3' + (3 == 3));
+    console.log('"3" === 3 ' + ("3" === 3));
+
+
+    for(i = 1; i <= 100; i++) {
+        if(i % 2 == 0) {
+            console.log(i);
+        }
+    }
+
+
+    console.log("Prime number function: ");
+
+    function prime(primeNumber) {
+        for(i = 0; i <= primeNumber; i++) {
+            if(i % 2 != 0 && i % 3 != 0 && i % 5 != 0) {
+            console.log(i + ' is prime!')
+            }
+        }
+    };
+    prime(27);
+
+</script>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light" style="box-shadow: 0 4px 2px -2px gray;">

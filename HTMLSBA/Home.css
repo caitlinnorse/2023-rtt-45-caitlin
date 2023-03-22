@@ -1,0 +1,11 @@
+.navbar {
+    color: white;
+    background-color: rgb(0,30,68);
+}
+
+h1 {
+    margin-top: 20px;
+    margin-left: 15px;
+    color:  rgb(0,30,68);
+    text-align: center;
+}
