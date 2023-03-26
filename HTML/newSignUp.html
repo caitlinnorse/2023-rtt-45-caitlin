@@ -12,6 +12,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css' rel='stylesheet'>        
 </head>
 
 <body style="background-color: #e1e7eb;">
@@ -55,8 +56,11 @@
     </section>
 
     <script>
+
+        document.getElementById("create_btn").addEventListener('click', formSubmit());
+
         function cancelClicked() {
-            alert("Cancel Clicked");
+            //alert("Cancel Clicked");
             var items = document.querySelectorAll('.is-invalid');
    
             for (i in items) {
@@ -101,7 +105,7 @@
             let confirmValue = confirmInput.value;
 
             if(confirmValue != passValue) {
-                alert("Password does not match!");
+                //alert("Password does not match!");
 
                 passInput.classList.add("is-invalid");
                 passInput.style.backgroundColor = "yellow";
@@ -180,13 +184,33 @@
                             <input type="password" class="form-control" id="confirmPassword">
                             <div id="confirmPasswordHelp" class="form-text">Re-enter Password.</div>
                         </div>
-                        <button type="button" class=" btn btn-primary mt-3 me-3" onclick="formSubmit()">Create Account</button>
+                        <button type="button" id="create_btn" class=" btn btn-primary mt-3 me-3"  onclick="formSubmit()">Create Account</button>
                         <button type="button" class="btn btn-secondary mt-3" onclick="cancelClicked()">Cancel</button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var calendarEl = document.getElementById('calendar');
+      
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+          timeZone: 'UTC',
+          themeSystem: 'bootstrap5',
+          headerToolbar: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
+          },
+          weekNumbers: true,
+          dayMaxEvents: true, // allow "more" link when too many events
+          events: 'https://fullcalendar.io/api/demo-feeds/events.json'
+        });
+      
+        calendar.render();
+      });    
+    </script>
 </body>
 
 </html>
