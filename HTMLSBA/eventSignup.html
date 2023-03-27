@@ -39,11 +39,14 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
-                                Account
+                                Events
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="#">email@address.com</a></li>
-                                <li><a class="dropdown-item" href="#">Logout</a></li>
+                                <li><a class="dropdown-item" href="thon.html">THON</a></li>
+                                <li><a class="dropdown-item" href="blueBand5K.html">Blue Band 5K</a></li>
+                                <li><a class="dropdown-item" href="basketballGames.html">Basketball Games</a></li>
+                                <li><a class="dropdown-item" href="footballGames.html">Football Games</a></li>
+
                             </ul>
                         </li>
                     </ul>
@@ -68,14 +71,15 @@
                 </div>
                 <div class="mb-3">
                     <label for="lastName" class="form-label">Last Name</label>
-                    <input type="text" class="form-control" id="lastName">
+                    <input type="text" class="form-control" id="lastName" aria-describedby="lastNameHelp">
+                    <div id="lastNameHelp" class="form-text"></div>
                 </div>
                 <br>
                 <p>Event</p>
                 <div class="mt-3">
-                    <select name="performanceEvent" id="Event">
+                    <select name="performanceEvent" id="event">
                         <option>THON</option>
-                        <option>Band Together</option>
+                        <option>Blue Band 5K</option>
                         <option>Basketball Game</option>
                         <option>Football Game</option>
                     </select>
@@ -83,61 +87,66 @@
                 <br>
                 <p>Instrument</p>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="instrument-radio" id="piccolo" checked>
+                    <input class="form-check-input" type="radio" name="instrument-radio" value="Piccolo" id="piccolo"
+                        checked>
                     <label class="form-check-label" for="piccolo">
                         Piccolo
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="instrument-radio" id="clarinet">
+                    <input class="form-check-input" type="radio" name="instrument-radio" value="Clarinet" id="clarinet">
                     <label class="form-check-label" for="clarinet">
                         Clarinet
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="instrument-radio" id="saxophone">
+                    <input class="form-check-input" type="radio" name="instrument-radio" value="Saxophone"
+                        id="saxophone">
                     <label class="form-check-label" for="saxophone">
                         Saxophone
                 </div>
                 <div class="form-check">
                     </label>
-                    <input class="form-check-input" type="radio" name="instrument-radio" id="trumpet">
+                    <input class="form-check-input" type="radio" name="instrument-radio" value="Trumpet" id="trumpet">
                     <label class="form-check-label" for="trumpet">
                         Trumpet
                     </label>
                 </div>
                 <div>
-                    <input class="form-check-input" type="radio" name="instrument-radio" id="mellophone">
+                    <input class="form-check-input" type="radio" name="instrument-radio" value="Mellophone"
+                        id="mellophone">
                     <label class="form-check-label" for="mellophone">
                         Mellophone
                     </label>
                 </div>
                 <div>
-                    <input class="form-check-input" type="radio" name="instrument-radio" id="trombone">
+                    <input class="form-check-input" type="radio" name="instrument-radio" value="Trombone" id="trombone">
                     <label class="form-check-label" for="trombone">
                         Trombone
                     </label>
                 </div>
                 <div>
-                    <input class="form-check-input" type="radio" name="instrument-radio" id="baritone">
+                    <input class="form-check-input" type="radio" name="instrument-radio" value="Baritone" id="baritone">
                     <label class="form-check-label" for="baritone">
                         Baritone
                     </label>
                 </div>
                 <div>
-                    <input class="form-check-input" type="radio" name="instrument-radio" id="sousaphone">
+                    <input class="form-check-input" type="radio" name="instrument-radio" value="Sousaphone"
+                        id="sousaphone">
                     <label class="form-check-label" for="sousaphone">
                         Sousaphone
                     </label>
                 </div>
                 <div>
-                    <input class="form-check-input" type="radio" name="instrument-radio" id="drums">
+                    <input class="form-check-input" type="radio" name="instrument-radio" value="Drums" id="drums">
                     <label class="form-check-label" for="drums">
                         Drums
                     </label>
                 </div>
                 <div>
-                    <input class="form-check-input" type="radio" name="instrument-radio" id="majorette">
+                    <input class="form-check-input" type="radio" name="instrument-radio" value="Majorette"
+                        id="majorette">
                     <label class="form-check-label" for="majorette">
                         Majorette
                     </label>
@@ -146,10 +155,10 @@
                 <p>Part</p>
                 <div class="mt-3">
                     <select name="part" id="part">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
                     </select>
                 </div>
                 <br>
@@ -172,20 +181,20 @@
     <script>
 
         //document.getElementById("submit_btn").addEventListener('click', formSubmit());
-        const radioButtons = document.querySelectorAll('input[name="instrument-radio"]');
+        //const radioButtons = document.querySelectorAll('input[name="instrument-radio"]');
 
-        for (radioButton in radioButtons) {
-            if (radioButton.checked) {
-                selectedSize = radioButton.value;
-                break;
-            }
-        }
+        //for (radioButton in radioButtons) {
+        //if (radioButton.checked) {
+        //selectedSize = radioButton.value;
+        //break;
+        //}
+        //}
 
         function formSubmit() {
             let emailInput = document.getElementById('exampleInputEmail1');
             let emailValue = emailInput.value;
-            console.log("form submitted" + emailValue);
-            console.log(emailInput);
+            //console.log("form submitted" + emailValue);
+            //console.log(emailInput);
 
             let firstNameInput = document.getElementById('firstName');
             let firstNameValue = firstNameInput.value;
@@ -193,33 +202,54 @@
             let lastNameInput = document.getElementById('lastName');
             let lastNameValue = lastNameInput.value;
 
-            let eventInput = document.getElementById('Event');
-            let eventValue = eventInput.value;
+            // let eventInput = document.getElementById('Event');
+            // let eventValue = eventInput.value;
 
-            let selectedInstrument = "";
+            selectEvent = document.querySelector('#event');
+            eventOutput = selectEvent.options[selectEvent.selectedIndex].value;
+
+            //console.log(eventOutput);
+
+            let selectedInstrument;
             const radioButtons = document.querySelectorAll('input[name="instrument-radio"]');
 
-            for (radioButton in radioButtons) {
+
+            for (radioButton of radioButtons) {
                 if (radioButton.checked) {
                     selectedInstrument = radioButton.value;
                     break;
                 }
+                //console.log(radioButton.value);
             }
             //let instrumentRadioInput = selectedSize;
             let instrumentRadioValue = selectedInstrument;
 
 
-            alert("you chose " + selectedInstrument);
+            //alert("you chose " + selectedInstrument);
 
-            let partInput = document.getElementById('part');
-            let partValue = partInput.value;
+            // let partInput = document.getElementById('part');
+            // let partValue = partInput.value;
 
-            let yearInput = document.getElementById('bandYear');
-            let yearValue = yearInput.value;
+
+            selectPart = document.querySelector('#part');
+            partOutput = selectPart.options[selectPart.selectedIndex].value;
+            //document.querySelector('.output').textContent = output;
+
+            //console.log(partOutput);
+
+
+            // let yearInput = document.getElementById('bandYear');
+            // let yearValue = yearInput.value;
+
+            selectYear = document.querySelector('#bandYear');
+            yearOutput = selectYear.options[selectYear.selectedIndex].value;
+
+            //console.log(yearOutput);
+
 
 
             if (emailValue == '') {
-                alert("Email is required.");
+                //alert("Email is required.");
                 // add the bootstrap class is-invalid to show an error
                 emailInput.classList.add("is-invalid");
                 // this will set the email input field to what ever text
@@ -227,10 +257,14 @@
                 // now we can add an indvidual style to the input field
                 emailInput.style.backgroundColor = "yellow";
                 emailInput.style.cssText += "color:red";
+
+
+                document.getElementById('emailHelp').innerText = "Please enter your email address";
+                document.getElementById('emailHelp').style.cssText = "color:red";
             }
 
-            if (firstName == '') {
-                alert("First Name is required.");
+            if (firstNameValue == '') {
+                //alert("First Name is required.");
                 // add the bootstrap class is-invalid to show an error
                 firstNameInput.classList.add("is-invalid");
                 // this will set the email input field to what ever text
@@ -238,15 +272,28 @@
                 // now we can add an indvidual style to the input field
                 firstNameInput.style.backgroundColor = "yellow";
                 firstNameInput.style.cssText += "color:red";
+
+                document.getElementById('firstNameHelp').innerText = "Please enter your first name";
+                document.getElementById('firstNameHelp').style.cssText = "color:red";
             }
 
-            document.getElementById('emailHelp').innerText = "Please enter your email address";
-            document.getElementById('emailHelp').style.cssText = "color:red";
 
-            document.getElementById('firstNameHelp').innerText = "Please enter your first name";
-            document.getElementById('firstNameHelp').style.cssText = "color:red";
+            if (lastNameValue == '') {
+                //alert("Last Name is required.");
+                // add the bootstrap class is-invalid to show an error
+                lastNameInput.classList.add("is-invalid");
+                // this will set the email input field to what ever text
+                lastNameInput.value = "Enter your last name";
+                // now we can add an indvidual style to the input field
+                lastNameInput.style.backgroundColor = "yellow";
+                lastNameInput.style.cssText += "color:red";
 
+                document.getElementById('lastNameHelp').innerText = "Please enter your last name";
+                document.getElementById('lastNameHelp').style.cssText = "color:red";
+            }
 
+            alert("Form submitted. Your entered information: Email: " + emailValue + " First Name: " + firstNameValue + " Last Name: " + lastNameValue +
+            " Event: " + eventOutput + " Instrument: " + selectedInstrument + " Part: " + partOutput + " Year: " + yearOutput);
         }
     </script>
     </script>
