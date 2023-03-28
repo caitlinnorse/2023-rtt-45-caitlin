@@ -1,0 +1,16 @@
+.basketball-pics {
+    display: flex;
+    justify-content: space-around;
+
+}
+
+img {
+    max-width: 20%;
+}
+
+#basketball-paragraph {
+    background-color: gray;
+    color: white;
+    text-align: center;
+    margin: 20px;
+}

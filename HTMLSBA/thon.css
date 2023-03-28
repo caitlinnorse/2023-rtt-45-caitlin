@@ -1,0 +1,16 @@
+.thon-pics {
+    display: flex;
+    justify-content: space-around;
+
+}
+
+img {
+    max-width: 30%;
+}
+
+#thon-paragraph {
+    background-color: gray;
+    color: white;
+    text-align: center;
+    margin: 20px;
+}

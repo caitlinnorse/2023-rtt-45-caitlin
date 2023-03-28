@@ -12,7 +12,16 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
-</head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+    
+    </head>
+    <style>
+        h1 {
+            font-family: "Libre Baskerville";
+        }
+    </style>
 
 <body>
 
@@ -84,6 +93,25 @@
                         <option>Football Game</option>
                     </select>
                 </div>
+                <br>
+                <p>
+                    Other availability:
+                </p>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="event1" disabled>
+                    <label class="form-check-label" for="event1">
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="event2" disabled>
+                    <label class="form-check-label" for="event2">
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="event3" disabled>
+                    <label class="form-check-label" for="event3">
+                    </label>
+                  </div>
                 <br>
                 <p>Instrument</p>
                 <div class="form-check">
@@ -207,6 +235,7 @@
 
             selectEvent = document.querySelector('#event');
             eventOutput = selectEvent.options[selectEvent.selectedIndex].value;
+            
 
             //console.log(eventOutput);
 
