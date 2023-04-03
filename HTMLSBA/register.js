@@ -1,8 +1,6 @@
 function formSubmit() {
     let emailInput = document.getElementById('exampleInputEmail1');
     let emailValue = emailInput.value;
-    //console.log("form submitted" + emailValue);
-    //console.log(emailInput);
 
     let firstNameInput = document.getElementById('firstName');
     let firstNameValue = firstNameInput.value;
@@ -16,9 +14,7 @@ function formSubmit() {
     let confirmInput = document.getElementById('confirmPassword');
     let confirmValue = confirmInput.value;
 
-    if(confirmValue != passValue) {
-        //alert("Password does not match!");
-
+    if (confirmValue != passValue) {
         passInput.classList.add("is-invalid");
         passInput.style.backgroundColor = "yellow";
         passInput.style.cssText += "color:red";
@@ -34,7 +30,6 @@ function formSubmit() {
     }
 
     if (emailValue == '') {
-        //alert("Email is required.");
         // add the bootstrap class is-invalid to show an error
         emailInput.classList.add("is-invalid");
         // this will set the email input field to what ever text
@@ -49,7 +44,6 @@ function formSubmit() {
     }
 
     if (firstNameValue == '') {
-        //alert("First Name is required.");
         // add the bootstrap class is-invalid to show an error
         firstNameInput.classList.add("is-invalid");
         // this will set the email input field to what ever text
@@ -64,7 +58,6 @@ function formSubmit() {
 
 
     if (lastNameValue == '') {
-        //alert("Last Name is required.");
         // add the bootstrap class is-invalid to show an error
         lastNameInput.classList.add("is-invalid");
         // this will set the email input field to what ever text
@@ -79,7 +72,6 @@ function formSubmit() {
 
     var passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{7,20}$/;
     if (!passValue.match(passw)) {
-        //alert("Not Valid pass");
 
         document.getElementById('confirmPasswordHelp').innerText = "Invalid Password";
         document.getElementById('confirmPasswordHelp').style.cssText = "color:red";
@@ -90,4 +82,38 @@ function formSubmit() {
 
     alert("Form submitted. Your entered information: Email: " + emailValue + " First Name: " + firstNameValue + " Last Name: " + lastNameValue +
         " Event: " + eventOutput + " Instrument: " + selectedInstrument + " Part: " + partOutput + " Year: " + yearOutput);
+}
+
+function cancelClicked() {
+    var items = document.querySelectorAll('.is-invalid');
+
+    for (i in items) {
+        console.log(i);
+        let item = i;
+        i.classList.remove("is-invalid");
+    }
+
+
+    let emailInput = document.getElementById('exampleInputEmail1');
+    let emailValue = emailInput.value;
+
+    let passInput = document.getElementById('password');
+    let passValue = passInput.value;
+
+    let confirmInput = document.getElementById('confirmPassword');
+    let confirmValue = confirmInput.value;
+
+    emailInput.classList.remove("is-invalid");
+    emailInput.value = "";
+    emailInput.style.backgroundColor = "white";
+
+    passInput.classList.remove("is-invalid");
+    passInput.value = "";
+    passInput.style.backgroundColor = "white";
+
+    confirmInput.classList.remove("is-invalid");
+    confirmInput.value = "";
+    confirmInput.style.backgroundColor = "white";
+
+
 }

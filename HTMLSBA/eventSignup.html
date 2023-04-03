@@ -12,16 +12,16 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
-    
-    </head>
-    <style>
-        h1 {
-            font-family: "Libre Baskerville";
-        }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+<style>
+    h1 {
+        font-family: "Libre Baskerville";
+    }
+</style>
 
 <body>
 
@@ -44,6 +44,9 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="calendar.html">Calendar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="register.html">Register</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
@@ -83,6 +86,7 @@
                     <input type="text" class="form-control" id="lastName" aria-describedby="lastNameHelp">
                     <div id="lastNameHelp" class="form-text"></div>
                 </div>
+
                 <br>
                 <p>Event</p>
                 <div class="mt-3">
@@ -97,21 +101,9 @@
                 <p>
                     Other availability:
                 </p>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="event1" disabled>
-                    <label class="form-check-label" for="event1">
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="event2" disabled>
-                    <label class="form-check-label" for="event2">
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="event3" disabled>
-                    <label class="form-check-label" for="event3">
-                    </label>
-                  </div>
+                <div id="dynamicCheckboxes">
+
+                </div>
                 <br>
                 <p>Instrument</p>
                 <div class="form-check">
@@ -207,22 +199,43 @@
     </section>
 
     <script>
+        document.getElementById("event").addEventListener("change", fillCheckboxes);
 
-        //document.getElementById("submit_btn").addEventListener('click', formSubmit());
-        //const radioButtons = document.querySelectorAll('input[name="instrument-radio"]');
+        function fillCheckboxes() {
+            selectEvent = document.querySelector('#event');
+            eventOutput = selectEvent.options[selectEvent.selectedIndex].value;
 
-        //for (radioButton in radioButtons) {
-        //if (radioButton.checked) {
-        //selectedSize = radioButton.value;
-        //break;
-        //}
-        //}
+            cbdiv = document.getElementById('dynamicCheckboxes');
+            // Clear dynamicCheckboxes div
+            while(cbdiv.firstChild) {
+                cbdiv.removeChild(cbdiv.firstChild);
+            }
+            
+            for(var i=0; i < selectEvent.length; i++) {
+                if (selectEvent[i].value != eventOutput) {
+                    var cb = document.createElement('input');
+                    cb.type = 'checkbox';
+                    cb.id = 'ExtraEventCheckBox';
+                    cb.class = 'ExtraEventClass';
+                    cb.value = selectEvent[i].value;
+
+                    const label = document.createElement('label');
+                    console.log(selectEvent[i].value)
+                    label.appendChild(document.createTextNode(selectEvent[i].value));                
+
+                    const lineBreak = document.createElement('br');
+                    cbdiv.appendChild(cb);
+                    cbdiv.appendChild(label);
+                    cbdiv.appendChild(lineBreak);
+                }
+            }
+        }
+
+        fillCheckboxes();
 
         function formSubmit() {
             let emailInput = document.getElementById('exampleInputEmail1');
             let emailValue = emailInput.value;
-            //console.log("form submitted" + emailValue);
-            //console.log(emailInput);
 
             let firstNameInput = document.getElementById('firstName');
             let firstNameValue = firstNameInput.value;
@@ -230,14 +243,18 @@
             let lastNameInput = document.getElementById('lastName');
             let lastNameValue = lastNameInput.value;
 
-            // let eventInput = document.getElementById('Event');
-            // let eventValue = eventInput.value;
-
             selectEvent = document.querySelector('#event');
             eventOutput = selectEvent.options[selectEvent.selectedIndex].value;
-            
 
-            //console.log(eventOutput);
+            extraEvent = document.getElementById("dynamicCheckboxes");
+            const checkboxes = extraEvent.querySelectorAll('input[type="checkbox"]');
+
+            let eventArray = [];
+            for(var i = 0; i < checkboxes.length; i++) {
+                if(checkboxes[i].checked) {
+                    eventArray.push(" " + checkboxes[i].value);
+                }
+            }
 
             let selectedInstrument;
             const radioButtons = document.querySelectorAll('input[name="instrument-radio"]');
@@ -248,38 +265,19 @@
                     selectedInstrument = radioButton.value;
                     break;
                 }
-                //console.log(radioButton.value);
             }
-            //let instrumentRadioInput = selectedSize;
             let instrumentRadioValue = selectedInstrument;
-
-
-            //alert("you chose " + selectedInstrument);
-
-            // let partInput = document.getElementById('part');
-            // let partValue = partInput.value;
 
 
             selectPart = document.querySelector('#part');
             partOutput = selectPart.options[selectPart.selectedIndex].value;
-            //document.querySelector('.output').textContent = output;
-
-            //console.log(partOutput);
-
-
-            // let yearInput = document.getElementById('bandYear');
-            // let yearValue = yearInput.value;
 
             selectYear = document.querySelector('#bandYear');
             yearOutput = selectYear.options[selectYear.selectedIndex].value;
 
-            //console.log(yearOutput);
-
 
 
             if (emailValue == '') {
-                //alert("Email is required.");
-                // add the bootstrap class is-invalid to show an error
                 emailInput.classList.add("is-invalid");
                 // this will set the email input field to what ever text
                 emailInput.value = "Enter your email";
@@ -293,7 +291,6 @@
             }
 
             if (firstNameValue == '') {
-                //alert("First Name is required.");
                 // add the bootstrap class is-invalid to show an error
                 firstNameInput.classList.add("is-invalid");
                 // this will set the email input field to what ever text
@@ -308,8 +305,6 @@
 
 
             if (lastNameValue == '') {
-                //alert("Last Name is required.");
-                // add the bootstrap class is-invalid to show an error
                 lastNameInput.classList.add("is-invalid");
                 // this will set the email input field to what ever text
                 lastNameInput.value = "Enter your last name";
@@ -320,11 +315,8 @@
                 document.getElementById('lastNameHelp').innerText = "Please enter your last name";
                 document.getElementById('lastNameHelp').style.cssText = "color:red";
             }
-
-            alert("Form submitted. Your entered information: Email: " + emailValue + " First Name: " + firstNameValue + " Last Name: " + lastNameValue +
-            " Event: " + eventOutput + " Instrument: " + selectedInstrument + " Part: " + partOutput + " Year: " + yearOutput);
         }
-    </script>
+
     </script>
 </body>
 

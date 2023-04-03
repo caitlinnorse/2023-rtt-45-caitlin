@@ -16,6 +16,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
 
+
+
 </head>
 <style>
     h1 {
@@ -24,7 +26,7 @@
 </style>
 
 <body>
-
+    <script src="register.js"></script>
     <div>
         <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #001E44;">
             <div class="container-fluid">
@@ -107,127 +109,5 @@
             </form>
         </div>
     </section>
-
-    <script>
-
-        //document.getElementById("submit_btn").addEventListener('click', formSubmit());
-        //const radioButtons = document.querySelectorAll('input[name="instrument-radio"]');
-
-        //for (radioButton in radioButtons) {
-        //if (radioButton.checked) {
-        //selectedSize = radioButton.value;
-        //break;
-        //}
-        //}
-
-        function formSubmit() {
-            let emailInput = document.getElementById('exampleInputEmail1');
-            let emailValue = emailInput.value;
-            //console.log("form submitted" + emailValue);
-            //console.log(emailInput);
-
-            let firstNameInput = document.getElementById('firstName');
-            let firstNameValue = firstNameInput.value;
-
-            let lastNameInput = document.getElementById('lastName');
-            let lastNameValue = lastNameInput.value;
-
-            // let eventInput = document.getElementById('Event');
-            // let eventValue = eventInput.value;
-
-            selectEvent = document.querySelector('#event');
-            eventOutput = selectEvent.options[selectEvent.selectedIndex].value;
-
-
-            //console.log(eventOutput);
-
-            let selectedInstrument;
-            const radioButtons = document.querySelectorAll('input[name="instrument-radio"]');
-
-
-            for (radioButton of radioButtons) {
-                if (radioButton.checked) {
-                    selectedInstrument = radioButton.value;
-                    break;
-                }
-                //console.log(radioButton.value);
-            }
-            //let instrumentRadioInput = selectedSize;
-            let instrumentRadioValue = selectedInstrument;
-
-
-            //alert("you chose " + selectedInstrument);
-
-            // let partInput = document.getElementById('part');
-            // let partValue = partInput.value;
-
-
-            selectPart = document.querySelector('#part');
-            partOutput = selectPart.options[selectPart.selectedIndex].value;
-            //document.querySelector('.output').textContent = output;
-
-            //console.log(partOutput);
-
-
-            // let yearInput = document.getElementById('bandYear');
-            // let yearValue = yearInput.value;
-
-            selectYear = document.querySelector('#bandYear');
-            yearOutput = selectYear.options[selectYear.selectedIndex].value;
-
-            //console.log(yearOutput);
-
-
-
-            if (emailValue == '') {
-                //alert("Email is required.");
-                // add the bootstrap class is-invalid to show an error
-                emailInput.classList.add("is-invalid");
-                // this will set the email input field to what ever text
-                emailInput.value = "Enter your email";
-                // now we can add an indvidual style to the input field
-                emailInput.style.backgroundColor = "yellow";
-                emailInput.style.cssText += "color:red";
-
-
-                document.getElementById('emailHelp').innerText = "Please enter your email address";
-                document.getElementById('emailHelp').style.cssText = "color:red";
-            }
-
-            if (firstNameValue == '') {
-                //alert("First Name is required.");
-                // add the bootstrap class is-invalid to show an error
-                firstNameInput.classList.add("is-invalid");
-                // this will set the email input field to what ever text
-                firstNameInput.value = "Enter your first name";
-                // now we can add an indvidual style to the input field
-                firstNameInput.style.backgroundColor = "yellow";
-                firstNameInput.style.cssText += "color:red";
-
-                document.getElementById('firstNameHelp').innerText = "Please enter your first name";
-                document.getElementById('firstNameHelp').style.cssText = "color:red";
-            }
-
-
-            if (lastNameValue == '') {
-                //alert("Last Name is required.");
-                // add the bootstrap class is-invalid to show an error
-                lastNameInput.classList.add("is-invalid");
-                // this will set the email input field to what ever text
-                lastNameInput.value = "Enter your last name";
-                // now we can add an indvidual style to the input field
-                lastNameInput.style.backgroundColor = "yellow";
-                lastNameInput.style.cssText += "color:red";
-
-                document.getElementById('lastNameHelp').innerText = "Please enter your last name";
-                document.getElementById('lastNameHelp').style.cssText = "color:red";
-            }
-
-            alert("Form submitted. Your entered information: Email: " + emailValue + " First Name: " + firstNameValue + " Last Name: " + lastNameValue +
-                " Event: " + eventOutput + " Instrument: " + selectedInstrument + " Part: " + partOutput + " Year: " + yearOutput);
-        }
-    </script>
-    </script>
 </body>
-
 </html>
