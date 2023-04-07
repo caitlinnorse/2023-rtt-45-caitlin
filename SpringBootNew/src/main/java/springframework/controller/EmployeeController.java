@@ -53,7 +53,38 @@ public class EmployeeController {
         return response;
     }
 
-    @GetMapping("/createSubmit")
+    @GetMapping("/edit/{id}")
+    public ModelAndView edit(@PathVariable Integer id) {
+        ModelAndView response = new ModelAndView("employee/create");
+
+        Employee emp = employeeDao.findById(id);
+        EmployeeFormBean form = new EmployeeFormBean();
+
+        // we are setting the employee id and all other employee fields on the form object
+        // so that we can pass them to the jsp through the model
+        form.setId(emp.getId());
+        form.setEmail(emp.getEmail());
+        form.setFirstName(emp.getFirstName());
+        form.setLastName(emp.getLastName());
+        form.setJobTitle(emp.getJobTitle());
+        form.setVacationHours(emp.getVacationHours());
+        form.setExtension(emp.getExtension());
+        form.setOfficeId(emp.getOfficeId());
+        form.setProfileImage(emp.getProfileImage());
+
+        // add the form bean tp tje ,pde; tp [ass ot tp the jsp page
+        response.addObject("form", form);
+
+        List<Office> offices = officeDao.getAllOffices();
+        response.addObject("offices", offices);
+
+        log.debug("In employee edit controller method ");
+        //log.debug(form.toString());
+
+        return response;
+    }
+
+    @PostMapping("/createSubmit")
     public ModelAndView createSubmit(EmployeeFormBean form) {
         ModelAndView response = new ModelAndView("employee/create");
 
@@ -63,7 +94,20 @@ public class EmployeeController {
         List<Office> offices = officeDao.getAllOffices();
         response.addObject("offices", offices);
 
+        // creating a new database entity
+        // and populating it with the incoming data from the form
         Employee emp = new Employee();
+
+        // if the id is populated in the form then it is an edit, so we want to load the
+        // employee from the database
+        if(form.getId() != null && form.getId() > 0) {
+            emp = employeeDao.findById(form.getId());
+        }
+
+        // now we set all values from the form bean onto the employee object
+        // We are not setting the id field here for 2 reasons
+        // 1) if this is a create the database will auto generate the id
+        // 2) if this is an edit we do not want to change the id (should be the same anyway)
         emp.setEmail(form.getEmail());
         emp.setFirstName(form.getFirstName());
         emp.setLastName(form.getLastName());
@@ -71,8 +115,17 @@ public class EmployeeController {
         emp.setVacationHours(form.getVacationHours());
         emp.setExtension(form.getExtension());
         emp.setOfficeId(form.getOfficeId());
+        emp.setProfileImage(form.getProfileImage());
 
+        // in spring boot data there is only a single method called save that is used for both create and update
         employeeDao.save(emp);
+
+        // now we add the populated form back to the model so page can display itself again
+
+        response.addObject("form", form);
+
+        // instead of processing a JSP view we can also redirect to another page
+        // response.setViewName("redirect:/employee/edit/" + emp.getId());
 
         return response;
 

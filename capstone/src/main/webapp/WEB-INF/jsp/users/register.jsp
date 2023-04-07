@@ -1,9 +1,11 @@
-<jsp:include page="includes/header.jsp"/>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<jsp:include page="../includes/header.jsp"/>
     </div>
     <section>
         <div class="container mt-3">
             <h1>Create an Account</h1>
-            <form>
+            <form action="/users/register" method="POST">
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Email address</label>
                     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">

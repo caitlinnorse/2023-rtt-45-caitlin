@@ -15,7 +15,17 @@ public class SlashController {
 
     @RequestMapping(value = {"/index", "/", "/index.html"}, method = RequestMethod.GET)
     public ModelAndView index() {
+
+
+
         log.debug("In the index controller method");
+
+        log.trace("This is a trace log example");
+        log.debug("This is a debug log example");
+        log.info("This is an info log example");
+        log.error("This is an error log example");
+        log.warn("This is a warn log example");
+
         ModelAndView response = new ModelAndView("index");
         return response;
     }
