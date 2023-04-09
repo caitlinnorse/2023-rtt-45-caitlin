@@ -1,4 +1,6 @@
-  <jsp:include page="includes/header.jsp"/>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<jsp:include page="../includes/header.jsp"/>
    </div>
     <section>
         <div class="container mt-3">
@@ -252,4 +254,4 @@
         }
 
     </script>
-    <jsp:include page="includes/footer.jsp"/>
+<jsp:include page="../includes/footer.jsp"/>
