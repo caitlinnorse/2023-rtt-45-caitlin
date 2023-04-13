@@ -19,6 +19,11 @@
 
 
                     <form action="/employee/createSubmit" method="POST">
+                    <c:if test="${success}">
+                        <div class="alert alert-success" role="alert">
+                            Employee Created
+                        </div>
+                    </c:if>
                     <input type="hidden" name="id" value="${form.id}" />
                     <div class=" mb-3">
                         <c:if test="${not empty form.id}">
@@ -31,17 +36,32 @@
                             <label for="exampleInputEmail1" class="form-label">Email address</label>
                             <input type="text" class="form-control" id="exampleInputEmail1" name="email"
                                 aria-describedby="emailHelp" value="${form.email}">
+                             <c:if test="${bindingResult.hasFieldErrors('email')}">
+                                 <c:forEach items="${bindingResult.getFieldErrors('email')}" var="error">
+                                    <div style="color:red;">${error.getDefaultMessage()}</div>
+                                 </c:forEach>
+                             </c:if>
                             <div id="emailHelp" class="form-text"></div>
                         </div>
                         <div class="mb-3">
                             <label for="firstName" class="form-label" id="firstName" aria-describedby="firstNameHelp">First Name</label>
                             <input type="text" class="form-control" id="firstName" name="firstName" value="${form.firstName}">
+                                 <c:if test="${bindingResult.hasFieldErrors('firstName')}">
+                                     <c:forEach items="${bindingResult.getFieldErrors('firstName')}" var="error">
+                                        <div style="color:red;">${error.getDefaultMessage()}</div>
+                                     </c:forEach>
+                                 </c:if>
                             <div id="firstNameHelp" class="form-text"></div>
                         </div>
                         <div class="mb-3">
                              <label for="lastName" class="form-label" id="lastName"
                                  aria-describedby="lastNameHelp">Last Name</label>
                               <input type="text" class="form-control" id="lastName" name="lastName" value="${form.lastName}">
+                                 <c:if test="${bindingResult.hasFieldErrors('lastName')}">
+                                     <c:forEach items="${bindingResult.getFieldErrors('lastName')}" var="error">
+                                        <div style="color:red;">${error.getDefaultMessage()}</div>
+                                     </c:forEach>
+                                 </c:if>
                               <div id="lastNameHelp" class="form-text"></div>
                         </div>
                         <div class="mb-3">
@@ -73,6 +93,11 @@
                             <label for="vacationHours" class="form-label"
                               aria-describedby="vacationHoursHelp">Vacation Hours</label>
                             <input type="number" class="form-control" id="vacationHours" name="vacationHours" value="${form.vacationHours}">
+                                 <c:if test="${bindingResult.hasFieldErrors('vacationHours')}">
+                                     <c:forEach items="${bindingResult.getFieldErrors('vacationHours')}" var="error">
+                                        <div style="color:red;">${error.getDefaultMessage()}</div>
+                                     </c:forEach>
+                                 </c:if>
                             <div id="vacationHoursHelp" class="form-text"></div>
                         </div>
 

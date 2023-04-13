@@ -56,7 +56,7 @@
                         <td>${emp.email}</td>
                         <td>${emp.jobTitle}</td>
                         <td>${emp.officeId}</td>
-                        <td><a href="/employee/edit/${emp.id}">Edit</td>
+                        <td><a href="/employee/edit/${e.id}">Edit</td>
 
                     </tr>
                 </c:forEach>

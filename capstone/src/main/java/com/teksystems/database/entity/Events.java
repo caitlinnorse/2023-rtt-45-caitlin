@@ -20,7 +20,7 @@ public class Events {
     private Integer id;
 
     @Column(name="name")
-    private String name;
+    private String eventName;
 
     @Column(name="date")
     private Date date;

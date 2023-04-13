@@ -18,7 +18,7 @@ public class Vendors {
     private Integer id;
 
     @Column(name="name")
-    private String name;
+    private String vName;
 
     @Column(name="description")
     private String description;

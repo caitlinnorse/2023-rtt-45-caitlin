@@ -1,11 +1,11 @@
 package com.teksystems.controller;
 
 import com.teksystems.database.dao.EventsDAO;
+import com.teksystems.database.entity.Events;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 @Slf4j
@@ -15,14 +15,17 @@ public class SlashController {
     @Autowired
     private EventsDAO eventsDAO;
 
-    @RequestMapping(value = "/home", method = RequestMethod.GET)
-    public ModelAndView home() {
+
+
+    @RequestMapping(value = {"/home", "/", "/home.html"}, method = RequestMethod.GET)
+    public ModelAndView index() {
         log.debug("In the home controller method");
+
         ModelAndView response = new ModelAndView("home");
         return response;
     }
 
-    @RequestMapping(value = "/eventSignup", method = RequestMethod.GET)
+    @PostMapping("/eventSignup")
     public ModelAndView eventSignup() {
         log.debug("In the eventSignup controller method");
         ModelAndView response = new ModelAndView("eventSignup");

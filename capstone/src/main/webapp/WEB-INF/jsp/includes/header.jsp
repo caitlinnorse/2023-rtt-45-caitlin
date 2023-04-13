@@ -53,6 +53,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/users/register">Register</a>
                         </li>
+
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
@@ -63,7 +64,8 @@
                                 <li><a class="dropdown-item" href="/fiveK">Blue Band 5K</a></li>
                                 <li><a class="dropdown-item" href="/basketballGames">Basketball Games</a></li>
                                 <li><a class="dropdown-item" href="/footballGames">Football Games</a></li>
-
+                                <li><a class="dropdown-item" href="/events/eventSearch">Search</a></li>
+                                <li><a class="dropdown-item" href="/events/create">Create</a></li>
                             </ul>
                         </li>
                     </ul>

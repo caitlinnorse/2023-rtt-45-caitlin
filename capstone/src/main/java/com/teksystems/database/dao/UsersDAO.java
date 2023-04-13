@@ -9,7 +9,6 @@ import java.util.List;
 
 public interface UsersDAO extends JpaRepository<Users, Long> {
 
-    Users findById(Integer id);
     @Query("FROM Users u")
     List<Users> getAllUsers();
 

@@ -1,5 +1,5 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<jsp:include page="../include/header.jsp" />
+<jsp:include page="../includes/header.jsp" />
 
 <section class="pt-5 bg-light-grey">
     <div class="container text-center">
@@ -30,4 +30,4 @@
 </section>
 
 
-<jsp:include page="../include/footer.jsp" />
+<jsp:include page="../includes/footer.jsp" />
