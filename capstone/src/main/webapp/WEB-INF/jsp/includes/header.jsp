@@ -23,9 +23,14 @@
 
 </head>
 <style>
-    h1 {
+    h1, h2, div {
         font-family: "Libre Baskerville";
     }
+
+    h1 {
+            margin: 10px;
+            padding: 10px;
+       }
 </style>
 
 <body>

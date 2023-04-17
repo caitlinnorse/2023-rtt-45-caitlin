@@ -4,7 +4,7 @@
 
     <h1 style="text-align: center;">Upcoming Events</h1>
     <section>
-        <div id='calendar'></div>
+        <div id='calendar' class="p-3">
         <script>
 
             document.addEventListener('DOMContentLoaded', function () {
@@ -369,5 +369,6 @@
             });
 
         </script>
+        </div>
     </section>
 <jsp:include page="includes/footer.jsp"/>

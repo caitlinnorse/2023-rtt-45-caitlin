@@ -1,6 +1,6 @@
 <jsp:include page="includes/header.jsp"/>
 
-      <h1 style="color: #001E44;;">We Are! The Penn State Blue Band!</h1>
+      <h1 style="color: #001E44; text-align: center; margin: 30px;">We Are! The Penn State Blue Band!</h1>
         <div class="container-fluid" style="text-align: center; margin: 20px;">
             <img src="https://thefootballletter.files.wordpress.com/2022/09/dsc_8713.jpg" style="width: 1600px;" />
             <p style="padding: 20px;">As a memeber of the Blue Band, you have the unique opportunity to inspire others

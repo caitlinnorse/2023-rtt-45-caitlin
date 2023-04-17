@@ -34,8 +34,8 @@ public class EventsController {
         return response;
     }
     @GetMapping("/eventSignup")
-    public ModelAndView eventSignup(UsersFormBean form) {
-        ModelAndView response = new ModelAndView("events/eventSearch");
+    public ModelAndView eventSignup(EventsFormBean form) {
+        ModelAndView response = new ModelAndView("events/eventSignup");
 
         log.debug("In events eventSignup controller method ");
         log.debug(form.toString());

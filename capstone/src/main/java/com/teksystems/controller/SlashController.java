@@ -2,6 +2,7 @@ package com.teksystems.controller;
 
 import com.teksystems.database.dao.EventsDAO;
 import com.teksystems.database.entity.Events;
+import com.teksystems.formbeans.UsersFormBean;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,6 +32,14 @@ public class SlashController {
         ModelAndView response = new ModelAndView("eventSignup");
         return response;
     }
+    @PostMapping("/register")
+    public ModelAndView register(UsersFormBean form) {
+        log.debug("In the register controller method");
+        ModelAndView response = new ModelAndView("users/register");
+
+        log.debug(form.toString());
+        return response;
+    }
 
     @RequestMapping(value = "/calendar", method = RequestMethod.GET)
     public ModelAndView calendar() {
@@ -38,12 +47,7 @@ public class SlashController {
         ModelAndView response = new ModelAndView("calendar");
         return response;
     }
-    @RequestMapping(value = "/register", method = RequestMethod.GET)
-    public ModelAndView register() {
-        log.debug("In the register controller method");
-        ModelAndView response = new ModelAndView("register");
-        return response;
-    }
+
     @RequestMapping(value = "/thon", method = RequestMethod.GET)
     public ModelAndView thon() {
         log.debug("In the thon controller method");

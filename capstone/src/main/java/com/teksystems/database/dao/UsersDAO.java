@@ -9,11 +9,6 @@ import java.util.List;
 
 public interface UsersDAO extends JpaRepository<Users, Long> {
 
-    @Query("FROM Users u")
-    List<Users> getAllUsers();
+    Users findByEmail(String email);
 
-    List<Users> findByFirstNameContainingIgnoreCase(String firstName);
-    List<Users> findByLastNameContainingIgnoreCase(String lastName);
-
-    List<Users> findByFirstNameContainingOrLastNameContainingIgnoreCase(String firstName, String lastName);
 }
