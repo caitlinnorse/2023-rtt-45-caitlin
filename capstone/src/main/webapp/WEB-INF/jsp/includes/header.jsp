@@ -50,7 +50,7 @@
                             <a class="nav-link active" aria-current="page" href="/home">Home</a>
                         </li>
                         <li>
-                            <a class="nav-link" href="/events/eventSearch">Search</a>
+                            <a class="nav-link" href="/eventSearch">Search</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/calendar">Calendar</a>
@@ -71,7 +71,7 @@
                             <a class="nav-link" href="/users/register">Register</a>
                         </li>
                          <li class="nav-item">
-                            <a class="nav-link" href="/login/login"/>Login</a>
+                            <a class="nav-link" href="/login/loginPage"/>Login</a>
                         </li>
                         </li>
                     </ul>

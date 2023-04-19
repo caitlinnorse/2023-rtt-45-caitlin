@@ -24,7 +24,7 @@ public class SecurityConfig {
         http.csrf().disable()
                 // this line is saying anything with the URL /employee/** is going require authentication
                 // you can put any number of URLS that you want to secure here with a comma sepearting them,
-                .authorizeHttpRequests().requestMatchers("/employee/**").authenticated()
+                .authorizeHttpRequests().requestMatchers("/event/**").authenticated()
                 // everything else in the application is going to permitted
                 .anyRequest().permitAll()
                 .and()

@@ -2,8 +2,10 @@ package com.teksystems.controller;
 
 import com.teksystems.database.dao.EventsDAO;
 import com.teksystems.database.entity.Events;
+import com.teksystems.formbeans.EventSignupFormBean;
 import com.teksystems.formbeans.EventsFormBean;
 import com.teksystems.formbeans.UsersFormBean;
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,39 +22,21 @@ public class EventsController {
     @Autowired
     private EventsDAO eventsDAO;
 
-    @GetMapping("/detail/{id}")
 
-    public ModelAndView detail(@PathVariable Integer id) {
-        ModelAndView response = new ModelAndView("/events/detail");
-
-        log.debug("In events detail controller method with id = " + id);
-        Events event = eventsDAO.findById(id);
-
-        response.addObject("events", event);
-
-        log.debug(event + "");
-        return response;
-    }
     @GetMapping("/eventSignup")
-    public ModelAndView eventSignup(EventsFormBean form) {
+    public ModelAndView eventSignup() {
         ModelAndView response = new ModelAndView("events/eventSignup");
 
         log.debug("In events eventSignup controller method ");
-        log.debug(form.toString());
 
         return response;
     }
 
-    @RequestMapping(value = "/eventSearch", method = RequestMethod.GET)
-    public ModelAndView eventSearch(@RequestParam(required = false) String search) {
-        log.info("In event detail controller " + search);
+    @PostMapping("/eventSignup")
+    public ModelAndView eventSignup(@Valid EventSignupFormBean form) {
+        ModelAndView response = new ModelAndView("events/eventSignup");
 
-        ModelAndView response = new ModelAndView("events/eventSearch");
-
-        List<Events> eventsList = eventsDAO.findByEventNameContainingIgnoreCaseOrEventTypeContainingIgnoreCase(search, search);
-
-        response.addObject("eventsList", eventsList);
-        response.addObject("eventName", search);
+        log.debug("In events eventSignup controller method ");
 
         return response;
     }

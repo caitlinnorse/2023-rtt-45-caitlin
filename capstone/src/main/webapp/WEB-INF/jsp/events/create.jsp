@@ -23,7 +23,7 @@
                     <div class=" mb-3">
                         <c:if test="${not empty form.id}">
                             <label for="editEvent"  class="form-label"></label>
-                            <a  id="editEvent" href="/events/detail/${form.id}"> Details </a>
+                            <a  id="editEvent" href="/detail/${form.id}"> Details </a>
 
                         </c:if>
                     </div>

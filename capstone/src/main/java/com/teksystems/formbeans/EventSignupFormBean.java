@@ -1,2 +1,5 @@
-package com.teksystems.formbeans;public class EventSignupFormBean {
+package com.teksystems.formbeans;
+
+public class EventSignupFormBean {
+
 }
