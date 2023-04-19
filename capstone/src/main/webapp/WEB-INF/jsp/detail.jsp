@@ -1,6 +1,6 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<jsp:include page="../includes/header.jsp"/>
+<jsp:include page="includes/header.jsp"/>
 
 <section class="pt-5 pb-5 bg-dark-grey">
     <div class="container text-center">
@@ -17,7 +17,7 @@
                     </tr>
                     <tr>
                         <td>Name</td>
-                        <td><a href="/events/eventSearch?search=${events.eventName}">${events.eventName}</a></td>
+                        <td><a href="/eventSearch?search=${events.eventName}">${events.eventName}</a></td>
                     </tr>
                     <tr>
                         <td>Date</td>
@@ -33,12 +33,17 @@
                     </tr>
                     <tr>
                         <td>Event Type</td>
-                        <td><a href="/events/eventSearch?search=${events.eventType}">${events.eventType}</td>
+                        <td><a href="/eventSearch?search=${events.eventType}">${events.eventType}</td>
                     </tr>
+                    <tr>
                         <td>Edit</td>
                         <td><a href="/events/edit/${events.id}">Edit</a></td>
+                    </tr>
+                    <tr>
+                        <td>Signup</td>
+                        <td><a href="/events/eventSignup">Signup</a></td>
                     </tr>
         </table>
     </div>
 </section>
-<jsp:include page="../includes/footer.jsp"/>
+<jsp:include page="includes/footer.jsp"/>

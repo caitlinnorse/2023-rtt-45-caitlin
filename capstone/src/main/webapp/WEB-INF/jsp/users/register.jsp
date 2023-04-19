@@ -6,22 +6,38 @@
         <div class="container mt-3" style="padding: 20px;">
 
             <h1>Create an Account</h1>
-            <form action="/register" method="POST">
+            <form action="/users/register" method="POST">
             <div class="panel form-rounded px-3">
                 <div class="col-lg-6 mb-3">
                     <label for="exampleInputEmail1" class="form-label">Email address</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp">
+                    <input type="text" class="form-control" id="exampleInputEmail1" name="email"
+                        aria-describedby="emailHelp" value="${form.email}">
+                        <c:if test="${bindingResult.hasFieldErrors('email')}">
+                            <c:forEach items="${bindingResult.getFieldErrors('email')}" var="error">
+                                <div style="color:red;">${error.getDefaultMessage()}</div>
+                            </c:forEach>
+                        </c:if>
                     <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                 </div>
                 <div class="row">
                 <div class="col-lg-6 mb-3">
                     <label for="firstName" class="form-label">First Name</label>
-                    <input type="text" class="form-control" id="firstName" name="firstName" aria-describedby="firstNameHelp">
+                        <input type="text" class="form-control" id="firstName" name="firstName" value="${form.firstName}">
+                            <c:if test="${bindingResult.hasFieldErrors('firstName')}">
+                                <c:forEach items="${bindingResult.getFieldErrors('firstName')}" var="error">
+                                    <div style="color:red;">${error.getDefaultMessage()}</div>
+                                </c:forEach>
+                            </c:if>
                     <div id="firstNameHelp" class="form-text"></div>
                 </div>
                 <div class="col-lg-6 mb-3">
                     <label for="lastName" class="form-label">Last Name</label>
-                    <input type="text" class="form-control" id="lastName" name="lastName" aria-describedby="lastNameHelp">
+                    <input type="text" class="form-control" id="lastName" name="lastName" value="${form.lastName}">
+                        <c:if test="${bindingResult.hasFieldErrors('lastName')}">
+                            <c:forEach items="${bindingResult.getFieldErrors('lastName')}" var="error">
+                                <div style="color:red;">${error.getDefaultMessage()}</div>
+                            </c:forEach>
+                         </c:if>
                     <div id="lastNameHelp" class="form-text"></div>
                 </div>
                 </div>
@@ -43,17 +59,17 @@
                     <div id="confirmPasswordHelp" class="form-text">Re-enter Password.</div>
                 </div>
                 <div class="mb-3">
-                                            <label for="instrument" class="form-label">Instrument</label>
-                                            <select id="instrumentId" name="instrument" class="form-select">
-                                                <c:forEach items="${instruments}" var="instrument">
-                                                    <option value="${instrument.id}"
-                                                    <c:if test="${instrument.id eq form.instrumentId}">
-                                                     selected
-                                                     </c:if>
-                                                     >${instrument.instrumentName}</option>
-                                                </c:forEach>
-                                            </select>
-                                        </div>
+                     <label for="instrument" class="form-label">Instrument</label>
+                        <select id="instrumentId" name="instrumentId" class="form-select">
+                            <c:forEach items="${instruments}" var="instrument">
+                                <option value="${instrument.id}"
+                                    <c:if test="${instrument.id eq form.instrumentId}">
+                                        selected
+                                    </c:if>
+                                >${instrument.instrumentName}</option>
+                            </c:forEach>
+                        </select>
+                </div>
 
                                 <div class="row">
                                 <div class="col-lg-4 mb-3">

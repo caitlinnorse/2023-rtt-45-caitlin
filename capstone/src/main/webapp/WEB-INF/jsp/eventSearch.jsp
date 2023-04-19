@@ -1,6 +1,6 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<jsp:include page="../includes/header.jsp"/>
+<jsp:include page="includes/header.jsp"/>
 
 </div>
 
@@ -48,13 +48,13 @@
             <tbody>
                 <c:forEach items="${eventsList}" var="event">
                     <tr>
-                        <td><a href="/events/detail/${event.id}">${event.id}</a></td>
+                        <td><a href="/detail/${event.id}">${event.id}</a></td>
                         <td>${event.eventName}</td>
                         <td>${event.date}</td>
                         <td>${event.location}</td>
                         <td>${event.otherEvents}</td>
                         <td>${event.eventType}</td>
-                        <td><a href="/events/edit/${event.id}">Edit</a></td>
+                        <td><a href="/edit/${event.id}">Edit</a></td>
 
                     </tr>
                 </c:forEach>
@@ -63,4 +63,4 @@
     </div>
 </section>
 
-<jsp:include page="../includes/footer.jsp"/>
+<jsp:include page="includes/footer.jsp"/>

@@ -26,9 +26,6 @@ public class Users {
     @Column(name="email")
     private String email;
 
-    @Column(name="instrument")
-    private String instrument;
-
     @Column(name="band_year")
     private Integer bandYear;
 
