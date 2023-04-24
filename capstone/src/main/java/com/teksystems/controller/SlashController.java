@@ -1,15 +1,22 @@
 package com.teksystems.controller;
 
 import com.teksystems.database.dao.EventsDAO;
+import com.teksystems.database.dao.UserEventDAO;
+import com.teksystems.database.dao.UsersDAO;
 import com.teksystems.database.entity.Events;
+import com.teksystems.database.entity.UserEvent;
+import com.teksystems.database.entity.Users;
 import com.teksystems.formbeans.UsersFormBean;
+import com.teksystems.security.AuthenticatedUserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
+import java.util.Map;
 
 @Slf4j
 @Controller
@@ -17,6 +24,15 @@ public class SlashController {
 
     @Autowired
     private EventsDAO eventsDAO;
+
+    @Autowired
+    private UserEventDAO userEventDAO;
+
+    @Autowired
+    private UsersDAO usersDAO;
+
+    @Autowired
+    private AuthenticatedUserService authenticatedUserService;
 
     @RequestMapping(value = {"/home", "/", "/home.html"}, method = RequestMethod.GET)
     public ModelAndView index() {
@@ -84,8 +100,24 @@ public class SlashController {
 
         log.debug("In events detail controller method with id = " + id);
         Events event = eventsDAO.findById(id);
+        List<Map<String, Object>> userEventsList = eventsDAO.findUsersForEvent(event.getId());
 
         response.addObject("events", event);
+        response.addObject("userEventsList", userEventsList);
+
+        Boolean signedUp = false;
+
+        Users user = authenticatedUserService.loadCurrentUser();
+
+        if(user != null) {
+            UserEvent ue = userEventDAO.findByEventIdAndUserId(id, user.getId());
+            if(ue != null) {
+                signedUp = true;
+            }
+        }
+
+        response.addObject("signedUp", signedUp);
+
 
         log.debug(event + "");
         return response;
@@ -98,6 +130,7 @@ public class SlashController {
         ModelAndView response = new ModelAndView("eventSearch");
 
         List<Events> eventsList = eventsDAO.findByEventNameContainingIgnoreCaseOrEventTypeContainingIgnoreCase(search, search);
+
 
         response.addObject("eventsList", eventsList);
         response.addObject("eventName", search);

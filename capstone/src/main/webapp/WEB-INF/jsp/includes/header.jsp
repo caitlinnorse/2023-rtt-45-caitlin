@@ -1,3 +1,6 @@
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -52,9 +55,6 @@
                         <li>
                             <a class="nav-link" href="/eventSearch">Search</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/calendar">Calendar</a>
-                        </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
@@ -70,10 +70,31 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/users/register">Register</a>
                         </li>
-                         <li class="nav-item">
-                            <a class="nav-link" href="/login/loginPage"/>Login</a>
-                        </li>
-                        </li>
+               <sec:authorize access="isAuthenticated()">
+                     <li class="nav-item">
+                         <a class="nav-link" href="/login/logout">Logout</a>
+                     </li>
+                     <li class="nav-item">
+                         <a class="nav-link" href=""><sec:authentication property="principal.username" /></a>
+                     </li>
+                 </sec:authorize>
+                 <sec:authorize access="!isAuthenticated()">
+                     <li class="nav-item">
+                         <a class="nav-link" href="/login/loginPage">Login</a>
+                     </li>
+
+                 </sec:authorize>
+                 <sec:authorize access="!isAuthenticated()">
+                     <li class="nav-item">
+                         <a class="nav-link" href="/register">Register</a>
+                     </li>
+
+                 </sec:authorize>
+                 <sec:authorize access="hasAnyAuthority('ADMIN')">
+                 <li class="nav-item">
+                    <a class="nav-link" href="">Admin Link</a>
+                 </li>
+                </sec:authorize>
                     </ul>
                 </div>
             </div>

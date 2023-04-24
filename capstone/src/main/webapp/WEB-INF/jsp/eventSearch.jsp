@@ -1,4 +1,5 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <jsp:include page="includes/header.jsp"/>
 
@@ -50,7 +51,7 @@
                     <tr>
                         <td><a href="/detail/${event.id}">${event.id}</a></td>
                         <td>${event.eventName}</td>
-                        <td>${event.date}</td>
+                        <td><fmt:formatDate value="${event.date}" pattern="MMMM/dd/yyyy" /></td>
                         <td>${event.location}</td>
                         <td>${event.otherEvents}</td>
                         <td>${event.eventType}</td>

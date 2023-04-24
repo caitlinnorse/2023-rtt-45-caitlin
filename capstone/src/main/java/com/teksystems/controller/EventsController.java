@@ -1,18 +1,19 @@
 package com.teksystems.controller;
 
 import com.teksystems.database.dao.EventsDAO;
+import com.teksystems.database.dao.UserEventDAO;
 import com.teksystems.database.entity.Events;
-import com.teksystems.formbeans.EventSignupFormBean;
+import com.teksystems.database.entity.UserEvent;
+import com.teksystems.database.entity.Users;
 import com.teksystems.formbeans.EventsFormBean;
-import com.teksystems.formbeans.UsersFormBean;
-import jakarta.validation.Valid;
+import com.teksystems.security.AuthenticatedUserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.List;
+import java.text.SimpleDateFormat;
 
 @Slf4j
 @Controller
@@ -22,21 +23,34 @@ public class EventsController {
     @Autowired
     private EventsDAO eventsDAO;
 
+    @Autowired
+    private AuthenticatedUserService authenticatedUserService;
+
+    @Autowired
+    private UserEventDAO userEventDAO;
 
     @GetMapping("/eventSignup")
-    public ModelAndView eventSignup() {
-        ModelAndView response = new ModelAndView("events/eventSignup");
+    public ModelAndView eventSignup(@RequestParam Integer eventId) {
+        ModelAndView response = new ModelAndView("redirect:/detail/" + eventId);
 
         log.debug("In events eventSignup controller method ");
 
-        return response;
-    }
+        Events events = eventsDAO.findById(eventId);
 
-    @PostMapping("/eventSignup")
-    public ModelAndView eventSignup(@Valid EventSignupFormBean form) {
-        ModelAndView response = new ModelAndView("events/eventSignup");
+        Users user = authenticatedUserService.loadCurrentUser();
 
-        log.debug("In events eventSignup controller method ");
+        UserEvent userEvent = userEventDAO.findByEventIdAndUserId(events.getId(), user.getId());
+
+        log.debug(userEvent + "");
+
+        if(userEvent == null) {
+            userEvent = new UserEvent();
+            userEvent.setEventId(events.getId());
+            userEvent.setUserId(user.getId());
+            userEvent.setInstrumentId(1);
+
+            userEventDAO.save(userEvent);
+        }
 
         return response;
     }

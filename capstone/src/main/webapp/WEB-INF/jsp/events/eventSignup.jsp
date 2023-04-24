@@ -30,13 +30,16 @@
                     </select>
                 </div>
                 <br>
-                <p>
-                    Other availability:
-                </p>
-                <div id="dynamicCheckboxes">
+                <div>
+                <input type="checkbox" id="THON" name="thon" value="THON">
+                <label for="thon">THON</label><br>
+                <input type="checkbox" id="Blue Band 5K" name="blueBand5K" value="blueBand5K">
+                <label for="blueBank5K">Blue Band 5K</label><br>
+                <input type="checkbox" id="basketballGame" name="basketballGame" value="basketballGame">
+                <label for="basketballGame">Basketball Game</label><br>
+                <input type="checkbox" id="footballGame" name="footballGame" value="footballGame">
+                <label for="footballGame">Football Game</label><br>
                 </div>
-                </div>
-                <br>
 
 
                 <button type="button" class="btn btn-primary" id="submit_btn"

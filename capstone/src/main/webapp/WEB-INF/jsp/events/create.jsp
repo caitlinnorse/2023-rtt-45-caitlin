@@ -1,4 +1,5 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <jsp:include page="../includes/header.jsp"/>
 <section class="pt-5 pb-5 bg-dark-grey">
@@ -35,7 +36,7 @@
                         <div class="mb-3">
                              <label for="date" class="form-label" id="date"
                                  aria-describedby="dateHelp">Date</label>
-                              <input type="text" class="form-control" id="date" name="date" value="${form.date}">
+                              <input type="text" class="form-control" id="date" name="date" value="<fmt:formatDate value="${form.date}" pattern="MM/dd/yyyy" />">
                               <div id="dateHelp" class="form-text"></div>
                         </div>
                         <div class="mb-3">
