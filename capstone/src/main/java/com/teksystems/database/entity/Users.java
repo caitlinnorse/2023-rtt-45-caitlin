@@ -37,4 +37,6 @@ public class Users {
 
     @Column(name="instrument_id")
     private Integer instrumentId;
+
+
 }

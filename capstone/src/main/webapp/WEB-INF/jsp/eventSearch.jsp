@@ -1,13 +1,14 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <jsp:include page="includes/header.jsp"/>
 
 </div>
 
-<section class="pt-5 pb-5 bg-dark-grey">
+<section class="pt-5 pb-4 bg-dark-grey">
     <div class="container text-center">
-        <h1>Event Search</h1>
+        <h1 >Event Search</h1>
     </div>
 </section>
 
@@ -36,26 +37,30 @@
         <table class="table table-striped border">
             <thead>
                 <tr>
-                    <th scope="col">ID</th>
+                    <th scope="col">Details</th>
                     <th scope="col">Name</th>
                     <th scope="col">Date</th>
                     <th scope="col">Location</th>
                     <th scope="col">Other Events</th>
                     <th scope="col">Event Type</th>
-                    <th scope="col">Edit</th>
+                    <sec:authorize access="hasAnyAuthority('ADMIN')">
+                        <th scope="col">Edit</th>
+                    </sec:authorize>
 
                 </tr>
             </thead>
             <tbody>
                 <c:forEach items="${eventsList}" var="event">
                     <tr>
-                        <td><a href="/detail/${event.id}">${event.id}</a></td>
+                        <td><button onclick="window.location.href='/detail/${event.id}';" style="padding: 5px; width: 85px; margin: 10px; border-radius: 5px; border-color: #AFDBF5; color: #001E44; background-color: #ebf1f7;">Details</button></td>
                         <td>${event.eventName}</td>
                         <td><fmt:formatDate value="${event.date}" pattern="MMMM/dd/yyyy" /></td>
                         <td>${event.location}</td>
                         <td>${event.otherEvents}</td>
                         <td>${event.eventType}</td>
-                        <td><a href="/edit/${event.id}">Edit</a></td>
+                        <sec:authorize access="hasAnyAuthority('ADMIN')">
+                            <td><a href="/events/edit/${event.id}">Edit</a></td>
+                        </sec:authorize>
 
                     </tr>
                 </c:forEach>

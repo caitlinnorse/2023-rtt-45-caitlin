@@ -22,4 +22,7 @@ public class EventsFormBean {
     private String otherEvents;
 
     private String eventType;
+
+    public String profileImage;
+
 }

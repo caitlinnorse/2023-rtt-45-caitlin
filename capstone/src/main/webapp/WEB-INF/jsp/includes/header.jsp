@@ -1,4 +1,5 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
 <!DOCTYPE html>
@@ -19,6 +20,7 @@
 
 
     <link rel="stylesheet" href="/Home.css" />
+    <link href="<c:url value='/pub/css/home.css' />" rel="stylesheet">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,10 +32,7 @@
         font-family: "Libre Baskerville";
     }
 
-    h1 {
-            margin: 10px;
-            padding: 10px;
-       }
+
 </style>
 
 <body>
@@ -41,7 +40,7 @@
     <div>
         <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #001E44;">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Navbar</a>
+                <a class="navbar-brand" href="#" ><img style="width: 45px;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-bcQCKlmEsOZYlOZ3Xy4q-zVMOqCzLEJQfw&usqp=CAU" ></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -67,9 +66,6 @@
                                 <li><a class="dropdown-item" href="/footballGames">Football Games</a></li>
                                 <li><a class="dropdown-item" href="/events/create">Create</a></li>
                             </ul>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/users/register">Register</a>
-                        </li>
                <sec:authorize access="isAuthenticated()">
                      <li class="nav-item">
                          <a class="nav-link" href="/login/logout">Logout</a>
@@ -86,7 +82,7 @@
                  </sec:authorize>
                  <sec:authorize access="!isAuthenticated()">
                      <li class="nav-item">
-                         <a class="nav-link" href="/register">Register</a>
+                         <a class="nav-link" href="/users/register">Register</a>
                      </li>
 
                  </sec:authorize>

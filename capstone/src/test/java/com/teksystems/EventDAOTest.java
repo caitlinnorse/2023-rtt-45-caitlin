@@ -1,2 +1,4 @@
-package com.teksystems;public class EventDAOTest {
+package com.teksystems;
+
+public class EventDAOTest {
 }

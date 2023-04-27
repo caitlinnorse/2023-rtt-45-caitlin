@@ -6,16 +6,13 @@
 <section class="pt-5 pb-5 bg-dark-grey">
     <div class="container text-center">
         <h1>Event Detail</h1>
+        <img src="${events.profileImage}" style="width: 150px; border-radius: 15px; padding-top: 20px;"/>
     </div>
 </section>
-<section class="pt-5 pb-5 bg-light-grey">
+<section class="pt-2 pb-3 bg-light-grey">
     <div class="container text-center">
 
         <table class="table table-striped border">
-                    <tr>
-                        <td>ID</td>
-                        <td>${events.id}</td>
-                    </tr>
                     <tr>
                         <td>Name</td>
                         <td><a href="/eventSearch?search=${events.eventName}">${events.eventName}</a></td>
@@ -29,10 +26,6 @@
                         <td>${events.location}</td>
                     </tr>
                     <tr>
-                        <td>Other Events</td>
-                        <td>${events.otherEvents}</td>
-                    </tr>
-                    <tr>
                         <td>Event Type</td>
                         <td><a href="/eventSearch?search=${events.eventType}">${events.eventType}</td>
                     </tr>
@@ -42,6 +35,9 @@
             <button onclick="window.location.href='/events/edit/${events.id}';" style="padding: 10px; width: 75px; margin: 20px; border-radius: 5px; border-color: #001E44; color: #001E44; background-color: #ebf1f7;">Edit</button>
             <c:if test="${not signedUp}">
                 <button onclick="window.location.href='/events/eventSignup?eventId=${events.id}';" style="padding: 10px; width: 100px; margin: 20px; border-radius: 5px; border-color: #001E44; color: #001E44; background-color: #ebf1f7;">Signup</button>
+            </c:if>
+            <c:if test="${signedUp}">
+                <button onclick="window.location.href='/events/remove/${events.id}';" style="padding: 10px; width: 100px; margin: 20px; border-radius: 5px; border-color: #001E44; color: #001E44; background-color: #ebf1f7;">Remove</button>
             </c:if>
         </div>
         <br>

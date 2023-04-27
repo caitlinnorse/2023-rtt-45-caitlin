@@ -167,6 +167,16 @@ public class EmployeeController {
             List<Map<String,Object>> employees = employeeDao.findAllWithOfficeName();
             response.addObject("employeesList", employees);
 
+
+            // steam the lsit of employees and print them out
+            employees.stream().forEach(emp -> {
+                log.debug(emp.toString());
+            });
+
+            //print the employee first names uppercase
+            employees.stream().forEach( emp -> {
+                log.debug(emp.get("firstName").toString().toUpperCase());
+            });
         }
 
         // check if both firstName and lastName have a value

@@ -58,6 +58,12 @@
                              <input type="text" class="form-control" id="eventType" name="eventType" value="${form.eventType}">
                              <div id="eventTypeHelp" class="form-text"></div>
                         </div>
+                        <div class="mb-3">
+                             <label for="profileImage" class="form-label" id="profileImage"
+                                aria-describedby="profileImageHelp">Profile Image</label>
+                             <input type="text" class="form-control" id="profileImage" name="profileImage" value="${form.profileImage}">
+                        <div id="profileImageHelp" class="form-text"></div>
+                        </div>
                     <c:if test="${empty form.id}">
                         <button type="submit" id="create_btn" class="btn btn-primary mt-3 me-2" onclick="formSubmit()">Create Event</button>
                     </c:if>

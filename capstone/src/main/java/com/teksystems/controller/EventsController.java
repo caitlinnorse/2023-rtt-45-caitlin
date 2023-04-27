@@ -9,6 +9,7 @@ import com.teksystems.formbeans.EventsFormBean;
 import com.teksystems.security.AuthenticatedUserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -28,6 +29,19 @@ public class EventsController {
 
     @Autowired
     private UserEventDAO userEventDAO;
+
+    @GetMapping("/remove/{eventId}")
+    public ModelAndView remove(@PathVariable Integer eventId) {
+        ModelAndView response = new ModelAndView("redirect:/detail/" + eventId);
+        Users user = authenticatedUserService.loadCurrentUser();
+
+        UserEvent userEvent = userEventDAO.findByEventIdAndUserId(eventId, user.getId());
+
+        userEventDAO.delete(userEvent);
+
+        return response;
+
+    }
 
     @GetMapping("/eventSignup")
     public ModelAndView eventSignup(@RequestParam Integer eventId) {
@@ -86,6 +100,7 @@ public class EventsController {
         event.setLocation(form.getLocation());
         event.setOtherEvents(form.getOtherEvents());
         event.setEventType(form.getEventType());
+        event.setProfileImage(form.getProfileImage());
 
         eventsDAO.save(event);
 
@@ -95,6 +110,8 @@ public class EventsController {
 
     }
 
+
+    @PreAuthorize("hasAuthority('ADMIN')")
     @GetMapping("/edit/{id}")
     public ModelAndView edit(@PathVariable Integer id) {
         ModelAndView response = new ModelAndView("events/create");
@@ -108,6 +125,7 @@ public class EventsController {
         form.setLocation(event.getLocation());
         form.setOtherEvents(event.getOtherEvents());
         form.setEventType(event.getEventType());
+        form.setProfileImage(event.getProfileImage());
 
 
         response.addObject("form", form);

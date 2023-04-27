@@ -33,4 +33,7 @@ public class Events {
 
     @Column(name="event_type")
     private String eventType;
+
+    @Column(name="profile_image_url")
+    private String profileImage;
 }
