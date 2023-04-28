@@ -1,14 +1,7 @@
 .home {
-  width: 100%;
-  height: 100vh;
-  background: url('https://thefootballletter.files.wordpress.com/2022/09/dsc_8713.jpg');
-  background-size: cover;
-  background-color: rgba(0, 0, 0, .25);
-  position: absolute;
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
+    justify-content: space-between;
+    border-radius: 25px;
+    margin: 30px;
 }
 
 

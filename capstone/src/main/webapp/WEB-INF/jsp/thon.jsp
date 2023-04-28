@@ -1,5 +1,5 @@
 <jsp:include page="includes/header.jsp"/>
-        <h1 style="color: #001E44; text-align: center;">THON</h1>
+        <h1 style="color: #001E44; text-align: center; margin: 20px;">THON</h1>
         <div class="thon-pics" style="text-align: center; margin: 20px;">
             <img
                 src="https://images.squarespace-cdn.com/content/v1/520c0bf9e4b055372d899811/1480781296761-O3GPE8D78CBAWYYOA7E8/image-asset.jpeg" />
