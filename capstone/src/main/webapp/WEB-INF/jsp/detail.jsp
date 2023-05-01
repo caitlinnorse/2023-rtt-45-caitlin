@@ -1,5 +1,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
+
 
 <jsp:include page="includes/header.jsp"/>
 
@@ -32,7 +34,9 @@
         </table>
 
         <div>
+        <sec:authorize access="hasAnyAuthority('ADMIN')">
             <button onclick="window.location.href='/events/edit/${events.id}';" style="padding: 10px; width: 75px; margin: 20px; border-radius: 5px; border-color: #001E44; color: #001E44; background-color: #ebf1f7;">Edit</button>
+        </sec:authorize>
             <c:if test="${not signedUp}">
                 <button onclick="window.location.href='/events/eventSignup?eventId=${events.id}';" style="padding: 10px; width: 100px; margin: 20px; border-radius: 5px; border-color: #001E44; color: #001E44; background-color: #ebf1f7;">Signup</button>
             </c:if>
